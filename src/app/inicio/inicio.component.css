@@ -1,0 +1,180 @@
+.header {
+  position: relative;
+
+  height:60rem ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../../assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 60%);
+   /* Mover la superposición detrás del contenido */
+}
+
+
+@media (min-width: 768px){
+  .header_texto{
+    margin-top: 15rem ;
+  }}
+  @media (min-width: 768px){
+    .barra {
+      display: flex;
+      justify-content: space-between;
+    align-items: center ;    
+    
+}   
+}
+.contenedor{
+  position: relative;
+  z-index: 1; 
+
+  
+
+}
+@media (min-width: 768px){
+  .barra {
+    display: flex;
+    justify-content: space-between;
+  align-items: center ;    
+}   
+}
+.logo {
+color: white;
+
+}
+
+.logo__nombre{
+  font-weight: 700;
+
+
+ 
+  
+}
+
+
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+.navegacion__enlace:hover {
+    transform: translateY(-5px); /* Eleva el enlace hacia arriba */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra para efecto de elevación */
+}
+
+
+@media (min-width: 768px){
+  .navegacion{
+      display: flex;
+      gap: 2rem;
+  }
+}
+.logoimport{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  
+  
+  }
+  @media (max-width:768px) {
+    .navegacion-diseño{
+        background-color:rgb(95, 112, 92);
+        margin: 2rem;
+        border-radius: 30%; 
+        
+    }
+    .navegacion-diseño a:hover{
+        background-color: rgb(154, 150, 148); 
+        color: black;
+    }
+    }
+    .botonportada{
+      padding: 1.5rem;
+      font-size: 17px;
+      border: none;
+      background-color:rgb(95, 112, 92);
+      text-decoration: none;
+      color: white;
+      margin-top: 3rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius:.5rem ;
+      width: 40%;
+      text-align: center;
+  }
+  
+  .botonportada:hover {
+      cursor: pointer;
+      transform: translateY(-4px);
+  
+  }
+
+  @media (min-width: 768px) {
+    .botonportada{
+      width: auto;
+    }
+    
+  }
+
+  
+  .header-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    gap: 2rem; /* Espacio entre el texto y la imagen */
+    margin-top: 3rem; /* Ajusta este valor para mover hacia abajo */
+  }
+  
+  .header-imagen {
+    flex: 1; /* Permite que la imagen ocupe espacio disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+  }
+  
+  .header_texto {
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    z-index: 1;
+    flex: 1; /* Permite que el texto ocupe espacio disponible */
+  }
+  
+  @media (max-width: 768px) {
+    .header-contenido {
+      flex-direction: column; /* Coloca los elementos uno debajo del otro en pantallas pequeñas */
+      align-items: center;
+      margin-top: 8rem; /* Ajusta el margen para pantallas pequeñas */
+    }
+  
+    .header_texto {
+      text-align: center; /* Centra el texto en pantallas pequeñas */
+      margin-top: 1rem;
+      margin-left: 2rem;
+    }
+  
+    .header-imagen {
+      margin-bottom: 2rem; /* Espacio debajo de la imagen en pantallas pequeñas */
+    }
+  }
+  
