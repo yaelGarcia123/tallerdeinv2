@@ -49,13 +49,14 @@
 }
 .logo {
 color: white;
-
+text-decoration: none;
 }
 
 .logo__nombre{
   font-weight: 700;
 
-
+  
+  
  
   
 }
@@ -88,6 +89,7 @@ color: white;
   display: flex;
   justify-content: center;
   text-align: center;
+
   
   
   }
@@ -158,6 +160,7 @@ color: white;
     color: white;
     z-index: 1;
     flex: 1; /* Permite que el texto ocupe espacio disponible */
+    margin-left: 15rem;
   }
   
   @media (max-width: 768px) {
@@ -177,4 +180,12 @@ color: white;
       margin-bottom: 2rem; /* Espacio debajo de la imagen en pantallas pequeñas */
     }
   }
-  
+  .header_texto p{
+
+    margin-top: 2rem;
+
+  }
+  .logoimport img{
+    height: 7rem;
+    margin-right: 0.5rem;
+}
