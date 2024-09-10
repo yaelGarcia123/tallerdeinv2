@@ -5,7 +5,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../../assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
+  background-image: url("../../../public/assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
   padding: 3rem;
   margin-bottom: 2rem;
 }
@@ -97,11 +97,12 @@ text-decoration: none;
     .navegacion-diseño{
         background-color:rgb(95, 112, 92);
         margin: 2rem;
-        border-radius: 30%; 
+        border-radius: 20%; 
+        
         
     }
     .navegacion-diseño a:hover{
-        background-color: rgb(154, 150, 148); 
+        background-color: rgb(204, 202, 201); 
         color: black;
     }
     }
