@@ -59,11 +59,12 @@ text-decoration: none;
 .navegacion__enlace {
     display: block;
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
     margin-right: 2.5rem;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.2s ease; /* Transición suave */
+    font-weight: bold;
 }
 
 .navegacion__enlace:hover {
@@ -219,4 +220,8 @@ text-decoration: none;
 
 .navbar.navbar.scrolled .navegacion__enlace{
   font-size: 1.8rem;
+}
+
+.bg-dark-green {
+  background-color: #214e21; /* Verde oscuro */
 }
