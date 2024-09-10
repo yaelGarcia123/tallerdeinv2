@@ -5,7 +5,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../../assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
+  background-image: url("../../../public/assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
   padding: 3rem;
   margin-bottom: 2rem;
 }
@@ -52,23 +52,16 @@ color: white;
 text-decoration: none;
 }
 
-.logo__nombre{
-  font-weight: 700;
 
-  
-  
- 
-  
-}
 
 
 
 .navegacion__enlace {
     display: block;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: white;
-    font-weight: bold;
+    margin-right: 2.5rem;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.2s ease; /* Transición suave */
 }
@@ -89,6 +82,7 @@ text-decoration: none;
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-left: 8rem;
 
   
   
@@ -97,11 +91,12 @@ text-decoration: none;
     .navegacion-diseño{
         background-color:rgb(95, 112, 92);
         margin: 2rem;
-        border-radius: 30%; 
+        border-radius: 20%; 
+        
         
     }
     .navegacion-diseño a:hover{
-        background-color: rgb(154, 150, 148); 
+        background-color: rgb(204, 202, 201); 
         color: black;
     }
     }
@@ -186,6 +181,42 @@ text-decoration: none;
 
   }
   .logoimport img{
-    height: 7rem;
-    margin-right: 0.5rem;
+    height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.logo-img {
+  
+  max-height: 50px;
+  transition: all 0.3s ease-in-out;
+  filter: hue-rotate(200deg) saturate(200%) brightness(90%); /* Ajusta el tono azul */
+}
+
+/* Estilo para el nombre del logo */
+.logo__nombre {
+  font-weight: 1000;
+  font-size: 4rem; /* Ajusta el tamaño del nombre */
+  color: black; 
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al hacer scroll hacia abajo */
+.navbar.scrolled {
+  padding: 0.5rem 1rem;
+}
+
+.navbar.scrolled .logo-img {
+  height: 40px; /* Ajusta el tamaño del logo al hacer scroll */
+}
+
+.navbar.scrolled .logo__nombre {
+  font-size: 3rem; /* Ajusta el tamaño del nombre al hacer scroll */
+}
+
+.navbar.navbar.scrolled .navegacion__enlace{
+  font-size: 1.8rem;
 }
