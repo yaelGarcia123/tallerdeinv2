@@ -156,7 +156,7 @@ text-decoration: none;
     color: white;
     z-index: 1;
     flex: 1; /* Permite que el texto ocupe espacio disponible */
-    margin-left: 15rem;
+    margin-left: 5rem;
   }
   
   @media (max-width: 768px) {
