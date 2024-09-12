@@ -1,0 +1,15 @@
+.container{
+    width: 100%;
+   }
+   
+   .card-text{
+     height: 100px;
+     margin-bottom: 0px;
+     text-align: center;
+   }
+   
+   .card-img-top{
+     padding-top: 10px;
+     height: 150px;
+     width: 200px;
+   }
