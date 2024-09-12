@@ -7,11 +7,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routes'; // Asegúrate de que la ruta y nombre sean correctos
 import { AppComponent } from './app.component'; // Asegúrate de tener este componente creado
 import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

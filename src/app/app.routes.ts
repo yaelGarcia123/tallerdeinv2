@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; 
 import { InicioComponent } from './inicio/inicio.component'; 
-
-// Define las rutas que necesitas aquí
+import { LoginComponent } from './login/login.component';
 export const routes: Routes = [
+
+
+
+  { path: 'login', component: LoginComponent },
+
+  { path: 'inicio', component: InicioComponent }, // Define la ruta
 
 
  
