@@ -3,7 +3,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #fdfdfd;
+    background-color: #e4e4e4;
     height: 100%;
     min-height: 100vh; /* Asegura que cubra toda la pantalla */
     display: flex;
@@ -89,4 +89,28 @@ html, body {
 
 .span a {
     color: var(--clr);
+}
+
+
+
+
+.logo-img {
+    max-height: 28rem;
+    transition: all 0.3s ease-in-out;
+    filter: hue-rotate(200deg) saturate(200%) brightness(90%);
+    margin-bottom: 0; /* Elimina el margen inferior */
+}
+
+.titles, .title, .subtitle, .description {
+    margin: 0; /* Elimina los márgenes de los títulos */
+    padding: 0; /* Elimina el padding para mantenerlo pegado */
+}
+
+.title, .subtitle, .description {
+    margin-top: 0.5rem; /* Ajusta el espacio superior si necesitas algo de separación */
+    text-align: center;
+}
+
+.form {
+    margin-top: 1rem; /* Ajusta este valor si necesitas más separación entre los títulos y el formulario */
 }
