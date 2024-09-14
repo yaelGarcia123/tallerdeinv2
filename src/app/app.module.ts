@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { BodyComponent } from './body/body.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
     
   ],
   providers: [],
