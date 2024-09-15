@@ -1,1 +1,25 @@
-<p>recuperarcuenta works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="content">
+        <form class="recover-form">
+            <h2>Recuperar Cuenta</h2>
+            <p>Te enviaremos un mensaje con el código de verificación</p>
+
+            <!-- Asegúrate de que el 'for' del label coincide con el 'id' del input -->
+            <label for="email" class="label">Correo Electrónico</label>
+            <input class="input" type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+
+            <button type="submit">Enviar</button>
+
+            <span class="back-link">
+                <a routerLink="/login">Volver</a>
+            </span>
+        </form>
+    </div>
+</body>
+</html>

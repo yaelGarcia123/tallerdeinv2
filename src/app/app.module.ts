@@ -9,6 +9,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
+import { RecuperarcuentaComponent } from './login/recuperarcuenta/recuperarcuenta.component';
+import { CrearcuentaComponent } from './login/crearcuenta/crearcuenta.component';
 
 
 
@@ -18,7 +20,11 @@ import { BodyComponent } from './body/body.component';
     InicioComponent,
     LoginComponent,
     BodyComponent,
-    FooterComponent
+    FooterComponent,
+    RecuperarcuentaComponent,
+    CrearcuentaComponent 
+   
+    
 
   ],
 

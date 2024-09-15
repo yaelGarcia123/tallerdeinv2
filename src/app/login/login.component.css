@@ -17,7 +17,6 @@ html, body {
     --bg-light: #efefef;
     --bg-dark: #707070;
     --clr: #68947a;
-    --clr-alpha: #9c9c9c60;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,8 +72,8 @@ html, body {
     border: none;
     cursor: pointer;
     transition: all 300ms;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 1000;
+    font-size: 1rem;
 }
 
 .form .submit:hover {
@@ -91,7 +90,12 @@ html, body {
     color: var(--clr);
 }
 
-
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10rem; /* Ajusta este valor para mover todo hacia arriba */
+}
 
 
 .logo-img {
@@ -113,4 +117,15 @@ html, body {
 
 .form {
     margin-top: 1rem; /* Ajusta este valor si necesitas más separación entre los títulos y el formulario */
+}
+.botton {
+    width: 100%;
+    padding: 10px;
+    background-color: #5a9;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
