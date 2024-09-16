@@ -34,11 +34,12 @@ body::before {
     padding: 20px;
     border-radius: 20px;
     position: relative;
+    z-index: 2;
   }
   
   .title {
     font-size: 28px;
-    color: royalblue;
+    color: rgb(127, 163, 107);
     font-weight: 600;
     letter-spacing: -1px;
     position: relative;
@@ -54,13 +55,13 @@ body::before {
     width: 16px;
     border-radius: 50%;
     left: 0px;
-    background-color: royalblue;
+    background-color: rgb(127, 163, 107);
   }
   
   .title::before {
     width: 18px;
     height: 18px;
-    background-color: royalblue;
+    background-color: rgb(66, 85, 56);
   }
   
   .title::after {
@@ -79,11 +80,11 @@ body::before {
   }
   
   .signin a {
-    color: royalblue;
+    color: rgb(120, 163, 90);
   }
   
   .signin a:hover {
-    text-decoration: underline royalblue;
+    text-decoration: underline rgb(126, 166, 104);
   }
   
   .flex {
@@ -132,7 +133,7 @@ body::before {
   .submit {
     border: none;
     outline: none;
-    background-color: royalblue;
+    background-color:rgb(127, 163, 107);
     padding: 10px;
     border-radius: 10px;
     color: #fff;
@@ -141,7 +142,7 @@ body::before {
   }
   
   .submit:hover {
-    background-color: rgb(56, 90, 194);
+    background-color:rgb(41, 50, 36);
   }
   
   @keyframes pulse {
@@ -155,3 +156,74 @@ body::before {
       opacity: 0;
     }
   }
+
+  .button {
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgb(127, 163, 107);
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 5rem;
+    left: 8rem;
+    z-index: 3;
+
+}
+.button__icon-wrapper {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: var(--clr);
+    background-color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+/* Primera flecha visible inicialmente */
+.button__icon-svg--first {
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Segunda flecha oculta inicialmente */
+.button__icon-svg--second {
+    position: absolute;
+    transform: translate(100%, -100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Efecto al hover: la primera flecha desaparece y la segunda aparece */
+.button:hover .button__icon-svg--first {
+    transform: translate(-100%, 100%);
+    opacity: 0;
+}
+
+.button:hover .button__icon-svg--second {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+.button:hover {
+    background-color: #000;
+}
+
+.button:hover .button__icon-wrapper {
+    color: #000;
+}

@@ -7,6 +7,25 @@
 </head>
 <body>
     <div class="container">
+
+        <div class="content">
+            <!-- Botón para regresar -->
+            <button routerLink="/inicio" class="button back-button" style="--clr: #7808d0">
+               <span class="button__icon-wrapper">
+                   <!-- Primera flecha, visible por defecto -->
+                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button__icon-svg button__icon-svg--first" width="14">
+                       <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                   </svg>
+                   <!-- Segunda flecha, aparece en hover -->
+                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="button__icon-svg button__icon-svg--second" width="14">
+                       <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                   </svg>
+               </span>
+               Regresar
+           </button>
+
+
+        
         <img src="../../assets/img/logotipo.png" alt="logo" class="logo-img" />
     
         <!-- Mueve los títulos aquí, justo después de la imagen -->
@@ -29,7 +48,9 @@
             <span class="span">Don't have an account? <a routerLink="/crearcuenta">Sign up</a></span>
         </form>
     </div>
+    </div>
     
+
 
 
 </body>
