@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("../../../public/assets/img/iniciopantalla.jpg"); /* Ruta de tu imagen */
+  background-image: url("../../../public/assets/img/ingenieria_circle.jpg"); /* Ruta de tu imagen */
   padding: 3rem;
   margin-bottom: 2rem;
 }
@@ -121,7 +121,7 @@ text-decoration: none;
       position: absolute;
       top: 0;
       left: 0;
-      background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+      background-image: linear-gradient(to right, #0f23d8 0%, #47f9ea 100%);
       transition: .5s ease;
       display: block;
       z-index: -1;
@@ -193,7 +193,7 @@ text-decoration: none;
   
   max-height: 50px;
   transition: all 0.3s ease-in-out;
-  filter: hue-rotate(200deg) saturate(200%) brightness(90%); /* Ajusta el tono azul */
+  /*filter: hue-rotate(200deg) saturate(200%) brightness(90%); /* Ajusta el tono azul */
 }
 
 /* Estilo para el nombre del logo */

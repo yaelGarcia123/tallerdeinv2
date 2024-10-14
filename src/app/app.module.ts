@@ -11,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { RecuperarcuentaComponent } from './login/recuperarcuenta/recuperarcuenta.component';
 import { CrearcuentaComponent } from './login/crearcuenta/crearcuenta.component';
-import { PagoComponent } from './pago/pago.component';
 import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 
 
@@ -25,7 +24,6 @@ import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
     FooterComponent,
     RecuperarcuentaComponent,
     CrearcuentaComponent,
-    PagoComponent,
     MetodoPagoComponent
    
     

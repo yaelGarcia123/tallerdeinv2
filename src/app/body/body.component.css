@@ -1,7 +1,7 @@
 .contnedorverde{
   border-radius: 5px;
   width: auto;
-  background: linear-gradient(to right, #158a2ec4, #32cd32bb);
+  background: linear-gradient(to right, #0e3994c4, #278bc5bb);
 }
 .contnedorverde .h2{
   color: black;
@@ -28,6 +28,12 @@
     padding-top: 10px;
     height: 200px;
     width: 200px;
+  }
+  .textoh{
+    color: #000000;
+  }
+  .textoh2{
+    color: #0953b4;
   }
 
 
