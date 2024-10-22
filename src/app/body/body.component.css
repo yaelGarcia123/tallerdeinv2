@@ -97,8 +97,8 @@
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
-  color: rgb(47, 50, 255);
-  box-shadow: 0 0 0 2px rgb(47, 50, 255);
+  color: #0953b4;
+  box-shadow: 0 0 0 2px #0953b4;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -107,7 +107,7 @@
 .animated-button svg {
   position: absolute;
   width: 24px;
-  fill: rgb(47, 50, 255);
+  fill: #0953b4;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -127,7 +127,7 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: rgb(47, 50, 255);
+  background-color: #0953b4;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -164,7 +164,7 @@
 
 .animated-button:active {
   scale: 0.95;
-  box-shadow: 0 0 0 4px rgb(47, 50, 255);
+  box-shadow: 0 0 0 4px #0953b4;
 }
 
 .animated-button:hover .circle {
