@@ -42,7 +42,7 @@
 .card {
   width: 290px;
   height: 454px;
-  background-image: linear-gradient(163deg, #0ba106 0%, #025702 100%);
+  background-image: linear-gradient(163deg, #065ba1 0%, #021657 100%);
   border-radius: 20px;
   transition: all .3s;
  }
@@ -61,7 +61,7 @@
  }
  
  .card:hover {
-  box-shadow: 0px 0px 30px 10px rgba(0, 255, 117, 0.30);
+  box-shadow: 0px 0px 30px 10px rgba(0, 17, 255, 0.3);
  }
 
  .contenidomembresia{
@@ -97,8 +97,8 @@
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
+  color: rgb(47, 50, 255);
+  box-shadow: 0 0 0 2px rgb(47, 50, 255);
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -107,7 +107,7 @@
 .animated-button svg {
   position: absolute;
   width: 24px;
-  fill: greenyellow;
+  fill: rgb(47, 50, 255);
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -127,7 +127,7 @@
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: greenyellow;
+  background-color: rgb(47, 50, 255);
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -164,7 +164,7 @@
 
 .animated-button:active {
   scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
+  box-shadow: 0 0 0 4px rgb(47, 50, 255);
 }
 
 .animated-button:hover .circle {
@@ -263,7 +263,7 @@
   justify-content: center;
   align-self: flex-start;
   font-family: inherit;
-  color: #059213;
+  color: white;
   font-weight: 600;
   width: 40%;
   background: #313131;
@@ -278,7 +278,8 @@
 
 .form-container .form-submit-btn:hover {
   background-color: #fff;
-  border-color: #059213;
+  border-color: #050792;
+  color: #000000;
 }
 
 
