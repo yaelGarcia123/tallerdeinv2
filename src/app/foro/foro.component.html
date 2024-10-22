@@ -1,0 +1,53 @@
+<div class="d-flex">
+    <!-- Sidebar (menú desplegable) -->
+    <div id="sidebar" class="bg-dark text-white p-3 vh-100" [class.collapsed]="isCollapsed">
+      <button class="btn btn-outline-light mb-4" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i> Menú
+      </button>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Amigos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Mensajes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Configuración</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Contenido principal -->
+    <div class="flex-grow-1">
+      <!-- Barra de navegación superior -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- Apartado de búsqueda -->
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
+  
+          <!-- Apartado de navegación -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Área de contenido principal -->
+      <div class="container mt-4">
+        <h1>Bienvenido al foro</h1>
+        <p>Aquí puedes postear, comentar y compartir con otros usuarios.</p>
+      </div>
+    </div>
+  </div>
+  
