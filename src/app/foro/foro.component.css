@@ -1,17 +1,131 @@
-#sidebar {
-    width: 250px;
-    transition: width 0.3s ease;
-  }
-  
-  #sidebar.collapsed {
-    width: 0;
-    overflow: hidden;
-  }
-  
-  .flex-grow-1 {
-    transition: margin-left 0.3s ease;
-  }
-  
-  .collapsed + .flex-grow-1 {
-    margin-left: 0;
-  }
+/* Botón de menú vertical y pequeño */
+.toggle-btn {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  width: 40px; /* Ancho pequeño */
+  height: 40px; /* Altura pequeña */
+  z-index: 1050; /* Asegura que esté sobre otros elementos */
+  border-radius: 0 5px 5px 0;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuSide{
+  background-color: #000f3f;
+}
+
+
+.menu-button {
+  background-color: #000f3f; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 12px 20px; /* Espaciado interno */
+  text-align: left; /* Texto alineado a la izquierda */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.menu-button:hover {
+  background-color: #031758; /* Color de fondo al pasar el mouse */
+  cursor: pointer; /* Cambiar el cursor a mano */
+}
+
+.list-group-item {
+  margin-bottom: 5px; /* Espacio entre botones */
+}
+/* Sidebar y logotipo */
+.sidebar {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.logo-container {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  max-width: 80px;
+  height: auto;
+}
+
+.logo-bottom {
+  margin-top: auto;
+}
+
+/* Contenido principal centrado */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.section-bar {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 1rem;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: calc(100vh - 150px); /* Espacio para la barra superior */
+}
+
+/* Card Estilos */
+.card {
+  border-radius: 10px;
+}
+
+.card-header {
+  font-weight: bold;
+  background-color: #000f3f;
+}
+
+.card-body {
+  font-size: 1rem;
+  color: #333;
+}
+
+.card-footer {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Estilos de botones */
+.btn-outline-primary {
+  color: #000000;
+  border-color: #000f3f;
+}
+
+.btn-outline-primary:hover {
+  background-color: #000f3f;
+  color: white;
+}
+
+.text-primary {
+  color: #000f3f !important;
+}
+
+.btn-link {
+  color: #6c757d;
+}
+
+.btn-link:hover {
+  color: #000f3f;
+}
