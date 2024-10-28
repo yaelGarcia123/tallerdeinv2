@@ -112,7 +112,7 @@ html, body {
     max-height: 8rem;
     filter: brightness(90%);
     margin-right: 1rem; /* Añade espacio entre el logo y los títulos */
-margin-left: -5rem;
+margin-left: -11rem;
 }
 
 .titles, .title, .subtitle, .description {
@@ -138,6 +138,9 @@ margin-left: -5rem;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+.botton:hover{
+    background-color: #41474f;
 }
 .button {
     line-height: 1;
