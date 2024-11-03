@@ -10,9 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { RecuperarcuentaComponent } from './login/recuperarcuenta/recuperarcuenta.component';
-import { CrearcuentaComponent } from './login/crearcuenta/crearcuenta.component';
+import { CrearCuentaComponent} from './login/crearcuenta/crearcuenta.component';
 import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { ForoComponent } from './foro/foro.component';
+import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.component';
+
 
 
 
@@ -24,9 +26,10 @@ import { ForoComponent } from './foro/foro.component';
     BodyComponent,
     FooterComponent,
     RecuperarcuentaComponent,
-    CrearcuentaComponent,
+    CrearCuentaComponent,
     MetodoPagoComponent,
-    ForoComponent
+    ForoComponent,
+    AgregarCalandoComponent
    
     
 
