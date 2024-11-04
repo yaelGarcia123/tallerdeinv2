@@ -3,84 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Importar Font Awesome -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .settings-section, .registered-cards-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .save-button, .remove-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-button {
+            background-color: #dc3545;
+        }
+        .remove-button:hover, .save-button:hover {
+            opacity: 0.8;
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .home-button i {
+            margin-right: 5px;
+        }
+    </style>
     <title>Pantalla de Configuración</title>
 </head>
-<body>
+<body> <button class="home-button" routerLink="/foro"> <!-- Redirigir a la página de inicio -->
+            <i class="fas fa-home"></i> Inicio
+        </button>
+    <div class="container mt-5 position-relative">
+       
 
-<div class="settings-container">
-    <h1>Configuración</h1>
-    <div class="settings-sections">
-        
-        <!-- Sección de Perfil de Usuario -->
+        <!-- Sección para actualizar correo y contraseña -->
         <div class="settings-section">
-            <h2>Perfil de Usuario</h2>
-            <label for="username">Nombre de Usuario</label>
-            <input type="text" id="username" placeholder="Ingresa tu nombre de usuario">
-
+            <h2>Actualizar Información de Cuenta</h2>
             <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
-
-            <button class="save-button">Guardar Cambios</button>
-        </div>
-
-        <!-- Sección de Seguridad -->
-        <div class="settings-section">
-            <h2>Seguridad</h2>
-            <label for="current-password">Contraseña Actual</label>
-            <input type="password" id="current-password" placeholder="Ingresa tu contraseña actual">
+            <input type="email" class="form-control" id="email" placeholder="tu_email@ejemplo.com">
 
             <label for="new-password">Nueva Contraseña</label>
-            <input type="password" id="new-password" placeholder="Ingresa tu nueva contraseña">
+            <input type="password" class="form-control" id="new-password" placeholder="Nueva contraseña">
 
-            <button class="save-button">Actualizar Contraseña</button>
+            <label for="confirm-password">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar contraseña">
+
+            <button class="save-button">Actualizar Información</button>
         </div>
 
-        <!-- Sección de Notificaciones -->
+        <!-- Sección para cambiar membresía -->
         <div class="settings-section">
-            <h2>Notificaciones</h2>
-            <label>
-                <input type="checkbox" id="email-notifications" checked>
-                Notificaciones por correo electrónico
-            </label>
-
-            <label>
-                <input type="checkbox" id="sms-notifications">
-                Notificaciones por SMS
-            </label>
-
-            <label>
-                <input type="checkbox" id="push-notifications" checked>
-                Notificaciones Push
-            </label>
-        </div>
-
-        <!-- Sección de Apariencia -->
-        <div class="settings-section">
-            <h2>Apariencia</h2>
-            <label for="theme">Tema</label>
-            <select id="theme">
-                <option value="light">Claro</option>
-                <option value="dark">Oscuro</option>
-                <option value="auto">Automático</option>
+            <h2>Cambiar Membresía</h2>
+            <label for="membership-options">Selecciona una opción de membresía</label>
+            <select class="form-control" id="membership-options">
+                <option value="basica">Membresía Básica</option>
+                <option value="premium">Membresía Premium</option>
+                <option value="pro">Membresía Pro</option>
             </select>
-
-            <label>
-                <input type="checkbox" id="high-contrast">
-                Alto Contraste
-            </label>
+            <button class="save-button">Cambiar Membresía</button>
         </div>
 
-        <!-- Sección de Opciones Avanzadas -->
+        <!-- Sección para agregar tarjeta -->
         <div class="settings-section">
-            <h2>Opciones Avanzadas</h2>
-            <p>Restablece la configuración a los valores predeterminados o desactiva tu cuenta de usuario.</p>
+            <h2>Agregar una nueva tarjeta</h2>
+            <label for="card-number">Número de Tarjeta</label>
+            <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+            
+            <label for="card-name">Nombre del Titular</label>
+            <input type="text" class="form-control" id="card-name" placeholder="Nombre como aparece en la tarjeta">
+            
+            <div class="card-details">
+                <div>
+                    <label for="expiration-date">Fecha de Expiración</label>
+                    <input type="text" class="form-control" id="expiration-date" placeholder="MM/AA" maxlength="5">
+                </div>
+                
+                <div>
+                    <label for="cvv">CVV</label>
+                    <input type="password" class="form-control" id="cvv" placeholder="123" maxlength="3">
+                </div>
+            </div>
+            
+            <label for="billing-address">Dirección de Facturación</label>
+            <input type="text" class="form-control" id="billing-address" placeholder="Dirección de facturación">
+            
+            <button class="save-button">Agregar Tarjeta</button>
+        </div>
 
-            <button class="danger-button">Restablecer Configuración</button>
-            <button class="danger-button">Desactivar Cuenta</button>
+        <!-- Sección para tarjetas registradas -->
+        <div class="registered-cards-section">
+            <h2>Tarjetas Registradas</h2>
+            <ul class="list-group card-list">
+                <li class="list-group-item d-flex justify-content-between align-items-center card-item">
+                    <div class="card-info">
+                        <p class="card-name">Visa •••• 1234</p>
+                        <p class="card-details">Fecha de Expiración: 12/25</p>
+                        <p class="billing-address">Dirección: Calle Ejemplo 123, Ciudad</p>
+                    </div>
+                    <button class="remove-button">Eliminar</button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center card-item">
+                    <div class="card-info">
+                        <p class="card-name">MasterCard •••• 5678</p>
+                        <p class="card-details">Fecha de Expiración: 11/24</p>
+                        <p class="billing-address">Dirección: Avenida Ejemplo 456, Ciudad</p>
+                    </div>
+                    <button class="remove-button">Eliminar</button>
+                </li>
+                <!-- Agregar más tarjetas según sea necesario -->
+            </ul>
         </div>
     </div>
-</div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
