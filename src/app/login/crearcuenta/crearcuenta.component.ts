@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CrearCuentaComponent {
   name: string = ''; // Propiedad para el nombre
   surname: string = ''; // Propiedad para el apellido
-  email: string = ''; // Propiedad para el email
+  username: string = ''; // Propiedad para el email
   password: string = ''; // Propiedad para la contraseña
   confirmPassword: string = ''; // Propiedad para confirmar contraseña
   curriculum: string = ''; // Propiedad para el currículum
@@ -28,7 +28,7 @@ export class CrearCuentaComponent {
       return;
     }
 
-    const { user, error } = await this.supabaseService.registerUser(this.name, this.email, this.password, 'general', this.curriculum);
+    const { user, error } = await this.supabaseService.registerUser(this.name, this.username, this.password, 'general', this.curriculum);
     
     if (error) {
       this.errorMessage = error.message; // Asigna el mensaje de error

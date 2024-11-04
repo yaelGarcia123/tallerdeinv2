@@ -8,23 +8,24 @@ import { Router } from '@angular/router'; // Importa Router
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = ''; // Propiedad para el email
-  password: string = ''; // Propiedad para la contraseña
-  errorMessage: string = ''; // Propiedad para mensajes de error
+  username: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
-  constructor(private supabaseService: SupabaseService, private router: Router) {} // Agrega Router
+  constructor(private supabaseService: SupabaseService, private router: Router) {}
 
   async login() {
-    this.errorMessage = ''; // Resetea el mensaje de error
-    const { user, error } = await this.supabaseService.loginUser(this.email, this.password);
-    
+    this.errorMessage = ''; // Limpiar mensaje de error
+
+    const { user, error } = await this.supabaseService.loginUserb(this.username, this.password);
+
     if (error) {
-      this.errorMessage = error.message; // Asigna el mensaje de error
+      this.errorMessage = error.message;
       console.error('Error en el inicio de sesión:', error);
     } else {
       console.log('Usuario autenticado:', user);
-      // Redirige al usuario al componente 'foro' después del inicio de sesión exitoso
-      this.router.navigate(['/foro']); // Cambia '/foro' por la ruta correcta
+      // Redirige al usuario a la ruta deseada después del inicio de sesión exitoso
+      this.router.navigate(['/foro']); // Ajusta la ruta según tu aplicación
     }
   }
 }

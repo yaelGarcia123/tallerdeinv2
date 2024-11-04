@@ -14,6 +14,7 @@ import { CrearCuentaComponent} from './login/crearcuenta/crearcuenta.component';
 import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { ForoComponent } from './foro/foro.component';
 import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.component';
+import { ConfiguracionComponent } from './foro/configuracion/configuracion.component';
 
 
 
@@ -29,7 +30,8 @@ import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.compo
     CrearCuentaComponent,
     MetodoPagoComponent,
     ForoComponent,
-    AgregarCalandoComponent
+    AgregarCalandoComponent,
+    ConfiguracionComponent
    
     
 

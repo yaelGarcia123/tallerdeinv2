@@ -1,1 +1,86 @@
-<p>configuracion works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Configuración</title>
+</head>
+<body>
+
+<div class="settings-container">
+    <h1>Configuración</h1>
+    <div class="settings-sections">
+        
+        <!-- Sección de Perfil de Usuario -->
+        <div class="settings-section">
+            <h2>Perfil de Usuario</h2>
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" id="username" placeholder="Ingresa tu nombre de usuario">
+
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
+
+            <button class="save-button">Guardar Cambios</button>
+        </div>
+
+        <!-- Sección de Seguridad -->
+        <div class="settings-section">
+            <h2>Seguridad</h2>
+            <label for="current-password">Contraseña Actual</label>
+            <input type="password" id="current-password" placeholder="Ingresa tu contraseña actual">
+
+            <label for="new-password">Nueva Contraseña</label>
+            <input type="password" id="new-password" placeholder="Ingresa tu nueva contraseña">
+
+            <button class="save-button">Actualizar Contraseña</button>
+        </div>
+
+        <!-- Sección de Notificaciones -->
+        <div class="settings-section">
+            <h2>Notificaciones</h2>
+            <label>
+                <input type="checkbox" id="email-notifications" checked>
+                Notificaciones por correo electrónico
+            </label>
+
+            <label>
+                <input type="checkbox" id="sms-notifications">
+                Notificaciones por SMS
+            </label>
+
+            <label>
+                <input type="checkbox" id="push-notifications" checked>
+                Notificaciones Push
+            </label>
+        </div>
+
+        <!-- Sección de Apariencia -->
+        <div class="settings-section">
+            <h2>Apariencia</h2>
+            <label for="theme">Tema</label>
+            <select id="theme">
+                <option value="light">Claro</option>
+                <option value="dark">Oscuro</option>
+                <option value="auto">Automático</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="high-contrast">
+                Alto Contraste
+            </label>
+        </div>
+
+        <!-- Sección de Opciones Avanzadas -->
+        <div class="settings-section">
+            <h2>Opciones Avanzadas</h2>
+            <p>Restablece la configuración a los valores predeterminados o desactiva tu cuenta de usuario.</p>
+
+            <button class="danger-button">Restablecer Configuración</button>
+            <button class="danger-button">Desactivar Cuenta</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

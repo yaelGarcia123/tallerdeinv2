@@ -29,11 +29,11 @@
                 <p class="description">Inicia sesión para continuar</p>
             </div>
         </div>
-        
-        <form class="form" (ngSubmit)="login()" #loginForm="ngForm">
+        <!--(ngSubmit)="login()"-->
+        <form class="form" #loginForm="ngForm">
             <span class="input-span">
-                <label for="email" class="label">Email</label>
-                <input type="email" name="email" id="email" [(ngModel)]="email" required />
+                <label for="email" class="label">Nombre de usuario</label>
+                <input type="email" name="email" id="email" [(ngModel)]="username" required />
             </span>
             <span class="input-span">
                 <label for="password" class="label">Password</label>
@@ -41,7 +41,7 @@
             </span>
             <span *ngIf="errorMessage" class="error-message">{{ errorMessage }}</span> <!-- Mensaje de error -->
             <span class="span"><a routerLink="/recuperarcuenta">Forgot password?</a></span>
-            <button type="submit" class="button">Iniciar sesión</button>
+            <button type="submit" class="button" routerLink="/foro">Iniciar sesión</button>
         
             <span class="span">Don't have an account? <a routerLink="/crearcuenta">Sign up</a></span>
         </form>

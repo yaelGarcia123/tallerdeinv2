@@ -10,6 +10,7 @@ import { CrearCuentaComponent } from './login/crearcuenta/crearcuenta.component'
 import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { ForoComponent } from './foro/foro.component';
 import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.component';
+import { ConfiguracionComponent } from './foro/configuracion/configuracion.component'
 
 
 export const routes: Routes = [
@@ -22,7 +23,8 @@ export const routes: Routes = [
   { path: 'crearcuenta', component:  CrearCuentaComponent}, // Define la ruta
   { path: 'metodo-pago', component: MetodoPagoComponent},
   { path: 'foro', component: ForoComponent},
-  {path: 'calando', component: AgregarCalandoComponent}
+  {path: 'calando', component: AgregarCalandoComponent},
+  {path: 'configuracion', component: ConfiguracionComponent}
 
  
 ];

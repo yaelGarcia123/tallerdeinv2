@@ -18,8 +18,8 @@
             </span>
             Regresar
         </button>
-
-        <form class="form" (ngSubmit)="register()" #registerForm="ngForm">
+<!--(ngSubmit)="register()"-->
+        <form class="form" #registerForm="ngForm">
             <p class="title">Regístrate</p>
             <p class="message">Ingrese sus datos para continuar</p>
 
@@ -36,8 +36,8 @@
             </div>  
                     
             <label>
-                <input required placeholder="" type="email" class="input" [(ngModel)]="email" name="email">
-                <span>Email</span>
+                <input required placeholder="" type="email" class="input" [(ngModel)]="username" name="email">
+                <span>Nombre de usuario</span>
             </label> 
                 
             <label>
