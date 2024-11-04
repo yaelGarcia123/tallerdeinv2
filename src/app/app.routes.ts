@@ -11,6 +11,8 @@ import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { ForoComponent } from './foro/foro.component';
 import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.component';
 import { ConfiguracionComponent } from './foro/configuracion/configuracion.component'
+import {ServiciosforoComponent } from './foro/serviciosforo/serviciosforo.component'
+import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch.component';
 
 
 export const routes: Routes = [
@@ -24,7 +26,9 @@ export const routes: Routes = [
   { path: 'metodo-pago', component: MetodoPagoComponent},
   { path: 'foro', component: ForoComponent},
   {path: 'calando', component: AgregarCalandoComponent},
-  {path: 'configuracion', component: ConfiguracionComponent}
+  {path: 'configuracion', component: ConfiguracionComponent},
+  {path: 'serviciosforo', component: ServiciosforoComponent},
+  {path: 'ingenierosearch', component:IngenierosearchComponent }
 
  
 ];
