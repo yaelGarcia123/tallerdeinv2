@@ -25,4 +25,6 @@ export class IngenierosearchComponent {
     console.log('Cerrar sesión');
     // Aquí puedes agregar lógica de cierre de sesión
   }
+
+ 
 }

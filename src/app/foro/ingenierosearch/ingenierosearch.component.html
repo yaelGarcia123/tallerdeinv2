@@ -8,7 +8,6 @@
         </button>
         <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="navbar-logo">
       </div>
-      
     </div>
   </nav>
 
@@ -16,14 +15,11 @@
     <!-- Menú lateral -->
     <div class="menuSide col-md-3 col-lg-2 text-white sidebar d-flex flex-column" [ngClass]="{'d-none': !isSidebarVisible}">
       <!-- Apartado de perfil del usuario -->
-      <br>
-      <br>
-      
+      <br><br>
       <div class="d-flex align-items-center p-3">
         <img src="../../assets/img/Logo.png" alt="Foto de Perfil" class="rounded-circle" style="width: 50px; height: 50px;">
         <span class="ml-2 text-white">Nombre del Usuario</span>
       </div>
-      
       <h4 class="pt-3 px-3">Carreras</h4>
       <ul class="list-group list-group-flush flex-grow-1">
         <li class="listaBoton">
@@ -39,7 +35,7 @@
     </div>
 
     <!-- Contenido principal -->
-    <div class="col-md-9 col-lg-10 content-wrapper">
+    <div class="col-md-9 col-lg-10 content-wrapper" [ngClass]="{'col-md-12 col-lg-15': !isSidebarVisible, 'col-md-9 col-lg-10': isSidebarVisible}">
       <div *ngIf="selectedCareer">
         <h1 class="text-center mb-4 abajo">Servicios de {{ selectedCareer }}</h1>
         <div class="row">
@@ -47,7 +43,7 @@
             <div class="service-box">
               <h2>Servicio 1</h2>
               <p>Aquí va la información del servicio 1 para {{ selectedCareer }}.</p>
-              <button class="btn btn-primary">Más detalles</button>
+              <button routerLink="/serviciosforo"   class="btn btn-primary">Más detalles</button>
             </div>
           </div>
           <div class="col-md-6">

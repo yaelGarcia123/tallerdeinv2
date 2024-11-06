@@ -1,42 +1,68 @@
-.container {
-    background-color: #f8f9fa; /* Color de fondo claro */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
-  }
-  
-  .service-box {
-    background-color: #000f3f; /* Color de fondo de los cuadros */
-    color: white; /* Color del texto */
-    padding: 30px; /* Espaciado interno más grande */
-    margin-bottom: 20px; /* Espaciado entre cuadros */
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones para hover */
-    position: relative; /* Posición relativa para efectos */
-  }
-  
-  .service-box:hover {
-    transform: translateY(-5px); /* Desplazamiento hacia arriba al pasar el mouse */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
-  }
-  
-  .service-box h2 {
-    margin-top: 0; /* Eliminar margen superior en el título */
-  }
-  
-  .btn {
-    background-color: #f8f9fa; /* Botón de fondo claro */
-    color: #000f3f; /* Texto del botón en color oscuro */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 12px 24px; /* Espaciado del botón */
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-    transition: background-color 0.3s, transform 0.3s; /* Transición suave al cambiar el color */
-  }
-  
-  .btn:hover {
-    background-color: #e2e6ea; /* Color de fondo del botón al pasar el mouse */
-    transform: scale(1.05); /* Escalar el botón al pasar el mouse */
-  }
-  
+/* Barra de navegación */
+.navbar {
+  background-color: #000f3f; /* Color de fondo de la barra */
+  padding: 10px 20px; /* Espaciado */
+  color: white; /* Color del texto */
+  position: fixed; /* Fija la barra en la parte superior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  max-width: 50px; /* Ajusta el tamaño del logo */
+  height: auto;
+  margin-left: 5rem; /* Espacio entre el logo y el nombre */
+}
+
+.navbar-brand {
+  font-size: 24px; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  font-weight: bold; /* Hacer que el texto sea más destacado */
+  text-transform: uppercase; /* Convertir el texto a mayúsculas */
+
+  margin-left: 40rem; /* Espacio entre el logo y el texto */
+}
+
+/* Estilos del contenedor de búsqueda */
+.search-container {
+  position: relative;
+  max-width: 50rem; /* Ancho máximo del buscador */
+  width: 100%; /* Para que ocupe todo el espacio disponible */
+  margin-right: 4rem;
+}
+
+.search-input {
+  width: 100%; /* El buscador ocupa todo el ancho */
+  padding: 10px 20px 10px 40px; /* Espaciado con espacio extra para el ícono */
+  font-size: 16px; /* Tamaño de la fuente */
+  border-radius: 25px; /* Bordes redondeados */
+  border: 2px solid #ccc; /* Borde gris */
+  background-color: #fff; /* Fondo blanco */
+  transition: all 0.3s ease; /* Transición suave para el borde y sombra */
+}
+
+.search-input:focus {
+  outline: none; /* Eliminar el borde azul al hacer foco */
+  border-color: #007bff; /* Borde azul cuando está enfocado */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra azul suave */
+}
+
+.search-input::placeholder {
+  color: #888; /* Color del placeholder */
+  font-style: italic; /* Estilo itálico para el placeholder */
+}
+
+/* Icono de búsqueda */
+.search-icon {
+  position: absolute;
+  left: 15px; /* Espacio a la izquierda del ícono */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888; /* Color del ícono */
+  font-size: 18px;
+}
