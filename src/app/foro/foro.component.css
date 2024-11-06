@@ -69,18 +69,23 @@
   overflow-y: auto;
   background-color: #f8f9fa;
 }
-
+.barramenu{
+  background-color: #000f3f;
+}
 .section-bar {
   width: 100%;
   max-width: 800px;
   margin-bottom: 1rem;
+
 }
+
+
 
 .content-container {
   width: 100%;
   max-width: 800px;
   padding: 1rem;
-  background-color: white;
+  background-color: 000f3f;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -119,13 +124,35 @@
 }
 
 .text-primary {
-  color: #000f3f !important;
+  color: #0059a1 !important;
 }
 
 .btn-link {
-  color: #6c757d;
+  color: #ffffff;
 }
 
 .btn-link:hover {
-  color: #000f3f;
+  color: #686868;
+}
+
+
+.search-bar {
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+
+.search-bar .form-control {
+  border-radius: 0 30px 30px 0;
+  font-size: 16px;
+}
+
+.search-bar .input-group-text {
+  border-radius: 30px 0 0 30px;
+}
+
+.search-bar .form-control:focus {
+  box-shadow: none;
+  outline: none;
 }
