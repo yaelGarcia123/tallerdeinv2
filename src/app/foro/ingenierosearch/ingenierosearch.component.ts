@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class IngenierosearchComponent {
   isSidebarVisible: boolean = true; // Estado del menú lateral (visible/invisible)
   currentSection: string = 'home'; // Sección actual por defecto
-
+  selectedCareer: string | null = null;
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible; // Cambia el estado de visibilidad
   }
@@ -17,7 +17,9 @@ export class IngenierosearchComponent {
   changeSection(section: string) {
     this.currentSection = section; // Actualiza la sección actual
   }
-
+  showServices(career: string) {
+    this.selectedCareer = career; // Almacena la carrera seleccionada
+  }
   // Método para cerrar sesión
   logout() {
     console.log('Cerrar sesión');

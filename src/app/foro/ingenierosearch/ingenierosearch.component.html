@@ -1,36 +1,24 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 <div class="container-fluid">
   <!-- Barra superior -->
-  <!-- Barra superior -->
-<nav class="navbar">
+  <nav class="navbar">
     <div class="d-flex justify-content-between align-items-center w-100">
       <div class="d-flex align-items-center">
         <button (click)="toggleSidebar()" class="menuSide toggle-btn">
-          <i class="fas fa-bars "></i>
+          <i class="fas fa-bars"></i>
         </button>
         <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="navbar-logo">
       </div>
-      <div class="search-container">
-        <span class="search-icon"><i class="fas fa-search"></i></span>
-        <input type="text" class="search-input" placeholder="Buscar...">
-      </div>
+      
     </div>
   </nav>
-  
 
   <div class="row">
     <!-- Menú lateral -->
     <div class="menuSide col-md-3 col-lg-2 text-white sidebar d-flex flex-column" [ngClass]="{'d-none': !isSidebarVisible}">
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-
-
-      
       <!-- Apartado de perfil del usuario -->
+      <br>
+      <br>
+      
       <div class="d-flex align-items-center p-3">
         <img src="../../assets/img/Logo.png" alt="Foto de Perfil" class="rounded-circle" style="width: 50px; height: 50px;">
         <span class="ml-2 text-white">Nombre del Usuario</span>
@@ -39,21 +27,38 @@
       <h4 class="pt-3 px-3">Carreras</h4>
       <ul class="list-group list-group-flush flex-grow-1">
         <li class="listaBoton">
-          <button (click)="changeSection('home')" class="menu-button">Ing.Sistemas</button>
+          <button (click)="showServices('Ing.Sistemas')" class="menu-button">Ing.Sistemas</button>
         </li>
         <li class="listaBoton">
-          <button (click)="changeSection('profile')" class="menu-button">Ing.mecatronica</button>
+          <button (click)="showServices('Ing.mecatronica')" class="menu-button">Ing.mecatronica</button>
         </li>
         <li class="listaBoton">
-          <button routerLink="/serviciosforo" class="menu-button">Ing.redes de la comunicacion</button>
+          <button (click)="showServices('Ing.redes de la comunicacion')" class="menu-button">Ing.redes de la comunicación</button>
         </li>
-        
       </ul>
     </div>
-  </div>
 
-  <!-- Contenido principal aquí -->
-  <div class="content-wrapper">
-    <!-- Aquí puedes agregar el contenido de cada sección -->
+    <!-- Contenido principal -->
+    <div class="col-md-9 col-lg-10 content-wrapper">
+      <div *ngIf="selectedCareer">
+        <h1 class="text-center mb-4 abajo">Servicios de {{ selectedCareer }}</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="service-box">
+              <h2>Servicio 1</h2>
+              <p>Aquí va la información del servicio 1 para {{ selectedCareer }}.</p>
+              <button class="btn btn-primary">Más detalles</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="service-box">
+              <h2>Servicio 2</h2>
+              <p>Aquí va la información del servicio 2 para {{ selectedCareer }}.</p>
+              <button class="btn btn-primary">Más detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
