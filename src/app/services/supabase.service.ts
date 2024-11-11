@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
 import * as bcrypt from 'bcryptjs';
 
 @Injectable({
@@ -7,10 +8,12 @@ import * as bcrypt from 'bcryptjs';
 })
 export class SupabaseService {
   private supabase: SupabaseClient;
+  posts: any[] = [];
 
   constructor() {
     this.supabase = createClient('https://ydsjycufwtkymsqeqrhy.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlkc2p5Y3Vmd3RreW1zcWVxcmh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA1Mjc2NzcsImV4cCI6MjA0NjEwMzY3N30.OjYCT0odwRV5-238BhrgEEWFFjtGaXv-QG8e4aoGVfk');
   }
+
 
 
 
@@ -29,17 +32,47 @@ export class SupabaseService {
     return this.supabase.auth.getUser();
   }
 
+
+
+
+
+
+
+
+
+
+  
+  async getPosts() {
+    const { data, error } = await this.supabase
+      .from('Publicaciones')
+      .select('*')
+      .order('fecha_publicacion', { ascending: false });
+  
+    // Si `data` es null, lo asignamos como un array vacío
+    return { data: data || [], error };
+  }
+
+
+
+
+
+
+
+
  
-  async addPost(titulo: string, contenido: string, idUsuario: number, idComunidad: number) {
+  async createPost(titulo: string, contenido: string, usuarioId: number, comunidadId: number) {
+    // Aquí puedes subir la imagen a Supabase Storage si es necesario
+    // const { data: imageData, error: imageError } = await supabase.storage.from('images').upload('path/to/image', imagen);
+
     const { data, error } = await this.supabase
       .from('Publicaciones')
       .insert([
-        {
+        { 
           titulo,
           contenido,
-          id_usuario: idUsuario,
-          id_comunidad: idComunidad,
-        },
+          id_usuario: usuarioId,
+          id_comunidad: comunidadId
+        }
       ]);
 
     return { data, error };

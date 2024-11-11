@@ -13,6 +13,7 @@ import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.compo
 import { ConfiguracionComponent } from './foro/configuracion/configuracion.component'
 import {ServiciosforoComponent } from './foro/serviciosforo/serviciosforo.component'
 import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch.component';
+import { ChatComponent } from './foro/chat/chat.component';
 
 
 export const routes: Routes = [
@@ -28,7 +29,8 @@ export const routes: Routes = [
   {path: 'calando', component: AgregarCalandoComponent},
   {path: 'configuracion', component: ConfiguracionComponent},
   {path: 'serviciosforo', component: ServiciosforoComponent},
-  {path: 'ingenierosearch', component:IngenierosearchComponent }
+  {path: 'ingenierosearch', component:IngenierosearchComponent },
+  {path: 'chat', component:ChatComponent}
 
  
 ];

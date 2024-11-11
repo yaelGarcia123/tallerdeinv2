@@ -17,6 +17,8 @@ import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.compo
 import { ConfiguracionComponent } from './foro/configuracion/configuracion.component';
 import {ServiciosforoComponent } from './foro/serviciosforo/serviciosforo.component'
 import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch.component';
+import { ChatComponent } from './foro/chat/chat.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch
     AgregarCalandoComponent,
     ConfiguracionComponent,
     ServiciosforoComponent,
-    IngenierosearchComponent
+    IngenierosearchComponent,
+    ChatComponent
    
     
 
