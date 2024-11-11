@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CrearCuentaComponent {
   name: string = ''; // Propiedad para el nombre
-  surname: string = ''; // Propiedad para el apellido
+  username: string = ''; // Propiedad para el apellido
   email: string = ''; // Propiedad para el email
   password: string = ''; // Propiedad para la contraseña
   confirmPassword: string = ''; // Propiedad para confirmar contraseña

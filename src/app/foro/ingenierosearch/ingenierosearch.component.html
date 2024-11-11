@@ -14,7 +14,6 @@
   <div class="row">
     <!-- Menú lateral -->
     <div class="menuSide col-md-3 col-lg-2 text-white sidebar d-flex flex-column" [ngClass]="{'d-none': !isSidebarVisible}">
-      <!-- Apartado de perfil del usuario -->
       <br><br>
       <div class="d-flex align-items-center p-3">
         <img src="../../assets/img/Logo.png" alt="Foto de Perfil" class="rounded-circle" style="width: 50px; height: 50px;">
@@ -39,21 +38,21 @@
       <div *ngIf="selectedCareer">
         <h1 class="text-center mb-4 abajo">Servicios de {{ selectedCareer }}</h1>
         <div class="row">
-          <div class="col-md-6">
+          <!-- Mostrar los servicios de acuerdo a la carrera seleccionada -->
+          <div *ngFor="let service of services[selectedCareer]" class="col-md-6">
             <div class="service-box">
-              <h2>Servicio 1</h2>
-              <p>Aquí va la información del servicio 1 para {{ selectedCareer }}.</p>
-              <button routerLink="/serviciosforo"   class="btn btn-primary">Más detalles</button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-box">
-              <h2>Servicio 2</h2>
-              <p>Aquí va la información del servicio 2 para {{ selectedCareer }}.</p>
-              <button class="btn btn-primary">Más detalles</button>
+              <h2>{{ service.name }}</h2>
+              <p>{{ service.description }}</p>
+      
+              <!-- Redirigir a diferentes componentes según la carrera seleccionada -->
+              <a [routerLink]="getServiceDetailsLink(selectedCareer, service.name)" class="btn btn-primary">Más detalles</a>
             </div>
           </div>
         </div>
+      </div>
+      
+      <div *ngIf="!selectedCareer">
+        <p class="text-center">Por favor, selecciona una carrera para ver los servicios.</p>
       </div>
     </div>
   </div>
