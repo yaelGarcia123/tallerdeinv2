@@ -69,18 +69,29 @@
       <div class="content-container">
         <div *ngIf="currentSection === 'home'">
           <!-- Botón para abrir el modal -->
-          <div class="mb-3">
-            <button class="btn btn-success" (click)="showPostForm = true">➕ Agregar Publicación</button>
-          </div>
         
           <!-- Modal para agregar publicación -->
+                    <!-- Contenedor de agregar publicación -->
+          <div class="post-container">
+            <img *ngFor="let usuario of usuario" [src]="usuario.imagen" class="user-avatar">
+            <input type="text" placeholder="¿Qué estás pensando?" class="post-input" (focus)="showPostForm = true">
+            <button class="post-btn" (click)="showPostForm = true">Agregar</button>
+          </div>
+
+          <!-- Modal de formulario -->
           <div class="modal-backdrop" *ngIf="showPostForm">
-            <div class="modal-content p-4">
+            <div class="modal-content p-4 justify-content-center">
               <h5>Agregar Publicación</h5>
               <form (ngSubmit)="submitPost()">
                 <div class="form-group mb-3">
                   <label for="titulo">Título</label>
                   <input type="text" id="titulo" [(ngModel)]="titulo" name="titulo" class="form-control" required>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="grupo">Seleccionar Grupo</label>
+                  <select id="grupo" [(ngModel)]="grupoSeleccionado" name="grupo" class="form-control" required>
+                    <option *ngFor="let grupo of groups" [ngValue]="grupo">{{ grupo.nombre }}</option>
+                  </select>
                 </div>
                 <div class="form-group mb-3">
                   <label for="imagen">Imagen</label>
@@ -90,48 +101,118 @@
                   <label for="contenido">Contenido</label>
                   <textarea id="contenido" [(ngModel)]="contenido" name="contenido" class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Publicar</button>
-                <button type="button" class="btn btn-secondary" (click)="showPostForm = false">Cancelar</button>
+                <div class="d-flex justify-content-center gap-3">
+                  <button type="submit" class="btn btn-primary">Publicar</button>
+                  <button type="button" class="btn btn-secondary" (click)="showPostForm = false">Cancelar</button>
+                </div>
               </form>
             </div>
           </div>
+
+
+
+
+
+
         
           <!-- Publicaciones existentes -->
           <div *ngFor="let post of posts" class="card mb-4 shadow-sm">
             <div class="card-header text-white">
-              <h5>{{ post.usuario }}</h5>
+              <h5>{{ post.usuario || 'Usuario desconocido' }}</h5>
             </div>
             <div class="card-body">
               <p>{{ post.contenido }}</p>
               <img *ngIf="post.imagen" [src]="post.imagen" class="img-fluid rounded" alt="Imagen de publicación">
               <div class="mt-3">
-                <button class="btn btn-outline-primary me-2">👍 Me gusta</button>
-                <button class="btn btn-outline-primary">💬 Comentar</button>
+                <button (click)="toggleLike()" [ngClass]="{'btn-dark': isLiked, 'btn-outline-primary': !isLiked}" class="btn btn-lg rounded-circle shadow-sm hover-effect">
+                  <i class="fas fa-thumbs-up"></i>
+                </button>
+                
+                <button (click)="post.mostrarComentarios = !post.mostrarComentarios" class="btn btn-lg rounded-circle shadow-sm hover-effect">
+                  <i class="fas fa-comments"></i>
+                </button>
               </div>
             </div>
             <div class="card-footer text-muted">
               {{ post.fecha }}
             </div>
+          
+            <!-- Sección de comentarios -->
+            <div *ngIf="post.mostrarComentarios" class="mt-4">
+              <div *ngFor="let comentario of post.comentarios" class="d-flex align-items-start mb-3">
+                <img *ngIf="comentario.usuario?.foto" [src]="comentario.usuario?.foto" class="rounded-circle ml-2 me-2" width="40" height="40" alt="Foto de perfil">
+                <div>
+                  <div class="fw-bold">{{ comentario.usuario?.nombre || 'Usuario desconocido' }}</div>
+                  <p>{{ comentario.contenido }}</p>
+                </div>
+              </div>
+          
+              <!-- Formulario para agregar un comentario -->
+              <div class="mt-3 d-flex align-items-start">
+                <img *ngFor="let usuario of usuario" [src]="usuario.imagen" alt="Foto de Perfil" class="rounded-circle ml-2 me-2" width="40" height="40" alt="Tu foto de perfil">
+                <div class="w-100">
+                  <input type="text" [(ngModel)]="post.nuevoComentario" placeholder="Escribe un comentario..." class="form-control mb-2">
+                  <button (click)="agregarComentario(post)" class="btn btn-primary btn-sm mb-2">Agregar comentario</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="foro-section" *ngIf="currentSection === 'foros'">
           <h3 class="text-center fw-bold my-4">Buscar Grupos o Foros</h3>
-
         
-          <!-- Barra de búsqueda -->
-          <div class="search-bar input-group my-3">
+          <!-- Barra de búsqueda con botón de agregar grupo -->
+          <div class="input-group my-3">
+            <!-- Botón para mostrar el formulario de agregar grupo -->
+            
+        
+            <!-- Barra de búsqueda -->
             <span class="input-group-text bg-light border-0" id="search-addon">
               <i class="bi bi-search"></i>
             </span>
             <input 
               type="text" 
-              class="form-control border-0" 
+              class="form-control border-0 mt-2" 
               placeholder="Buscar grupos..." 
               [(ngModel)]="searchQuery" 
               (input)="filterGroups()"
             />
+            <button class="btn btn-primary me-2" (click)="showGroupForm = true">Agregar Grupo</button>
+          </div>
+        
+          <!-- Mensaje cuando no hay resultados -->
+          <div *ngIf="filteredGroups.length === 0 && searchQuery" class="text-center mt-3 text-muted">
+            No se han encontrado resultados.
           </div>
         
           <!-- Lista de grupos -->
@@ -141,7 +222,6 @@
                 <!-- Columna para la imagen -->
                 <div class="col-md-3">
                   <img *ngIf="group.imagen" [src]="group.imagen" class="img-fluid rounded-start" alt="Imagen del grupo">
-               
                 </div>
                 <!-- Columna para el contenido del grupo -->
                 <div class="col-md-9">
@@ -149,6 +229,10 @@
                     <h4 class="card-title fw-bold">{{ group.nombre }}</h4>
                     <p class="card-text">{{ group.descripcion }}</p>
                     <small class="text-muted">Miembros: {{ group.miembros }}</small>
+                    <!-- Botón de unirse -->
+                    <button (click)="joinGroup(group)" class="btn btn-primary btn-sm float-end mt-2">
+                      Unirse al grupo
+                    </button>
                   </div>
                 </div>
               </div>
@@ -156,11 +240,161 @@
           </div>
         </div>
 
-        <div *ngIf="currentSection === 'messages'">
-          <h3>Mensajes</h3>
-          <p>Aquí aparecerán tus mensajes recientes.</p>
+
+                <!-- Modal de formulario para agregar grupo -->
+        <div class="modal-backdrop" *ngIf="showGroupForm">
+          <div class="modal-content p-4">
+            <h5>Agregar Nuevo Grupo</h5>
+            <form (ngSubmit)="addGroup()">
+              <div class="form-group mb-3">
+                <label for="nombre">Nombre del Grupo</label>
+                <input type="text" id="nombre" [(ngModel)]="newGroup.nombre" name="nombre" class="form-control" required>
+              </div>
+              <div class="form-group mb-3">
+                <label for="imagen">Imagen del Grupo</label>
+                <input type="file" id="imagen" (change)="onFileChangeG($event)" class="form-control">
+              </div>
+              <div class="form-group mb-3">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" [(ngModel)]="newGroup.descripcion" name="descripcion" class="form-control" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="miembros">Número de Miembros</label>
+                <input type="number" id="miembros" [(ngModel)]="newGroup.miembros" name="miembros" class="form-control" required>
+              </div>
+              <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary">Agregar Grupo</button>
+                <button type="button" class="btn btn-secondary" (click)="showGroupForm = false">Cancelar</button>
+              </div>
+            </form>
+          </div>
         </div>
 
+        
+        <div *ngIf="currentSection === 'messages'" class="messages-modal">
+          <h3 class="mb-4">Mensajes</h3>
+          <p>Aquí aparecerán tus mensajes recientes.</p>
+        
+          <!-- Listado de chats -->
+          <div class="list-group">
+            <div *ngFor="let chat of chats" class="list-group-item d-flex align-items-center" (click)="openChat(chat)">
+              <!-- Imagen del usuario -->
+              <img [src]="chat.usuario.foto" alt="{{ chat.usuario.nombre }}" class="rounded-circle me-3" width="50" height="50">
+        
+              <div class="flex-grow-1">
+                <!-- Nombre y último mensaje -->
+                <h6 class="mb-1">{{ chat.usuario.nombre }}</h6>
+                <p class="text-muted mb-0">{{ chat.ultimoMensaje }}</p>
+              </div>
+        
+              <!-- Icono de notificación (si hay mensajes nuevos) -->
+              <div *ngIf="chat.nuevaNotificacion" class="ms-3">
+                <i class="bi bi-bell-fill text-danger" style="font-size: 20px;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+<!-- Modal para mostrar el chat -->
+<div *ngIf="selectedChat" class="modal fade show" style="display: block;" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-primary" id="chatModalLabel">{{ selectedChat.usuario.nombre }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <!-- Mensajes del chat -->
+        <div *ngFor="let mensaje of selectedChat.mensajes" class="mb-3">
+          <div class="d-flex mb-2" [ngClass]="{'justify-content-start': mensaje.usuario.nombre !== 'Tú', 'justify-content-end': mensaje.usuario.nombre === 'Tú'}">
+            <div class="chat-message p-2 rounded-3" [ngClass]="{'bg-light': mensaje.usuario.nombre !== 'Tú', 'bg-primary text-white': mensaje.usuario.nombre === 'Tú'}">
+              <strong>{{ mensaje.usuario.nombre }}:</strong> {{ mensaje.texto }}
+            </div>
+          </div>
+        </div>
+        <!-- Formulario para enviar mensaje -->
+        <div class="mt-3">
+          <textarea [(ngModel)]="newMessage" class="form-control" rows="3" placeholder="Escribe un mensaje..." (keyup.enter)="sendMessage()"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div *ngIf="currentSection === 'profile'" class="perfil-container">
+          <!-- Información Básica -->
+          <div class="card shadow-sm p-4 mb-4">
+            <h3 class="card-title mb-3">Información Básica</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Nombre:</strong> Juan Pérez</p>
+                <p><strong>Email:</strong> juanperezexample.com</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Edad:</strong> 30 años</p>
+                <p><strong>Ubicación:</strong> Ciudad de México</p>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Sección de Enviar Solicitud como Freelancer -->
+          <div class="card shadow-sm p-4">
+            <h3 class="card-title mb-4">Enviar Solicitud como Freelancer</h3>
+            <form (ngSubmit)="submitRequest()" #freelancerForm="ngForm">
+              <div class="form-group mb-3">
+                <label for="curriculum" class="form-label">Subir currículum</label>
+                <input type="file" id="curriculum" name="curriculum" class="form-control" ngModel>
+              </div>
+        
+              <div class="form-group mb-3">
+                <label for="skills" class="form-label">Habilidades clave</label>
+                <textarea id="skills" name="skills" rows="3" class="form-control" placeholder="Escribe tus habilidades y experiencia" ngModel></textarea>
+              </div>
+        
+              <div class="form-group mb-3">
+                <label for="coverLetter" class="form-label">Carta de presentación</label>
+                <textarea id="coverLetter" name="coverLetter" rows="4" class="form-control" placeholder="Explica por qué te gustaría trabajar como freelancer y por qué te consideras adecuado para el puesto." ngModel></textarea>
+              </div>
+        
+              <div class="form-group mb-3">
+                <label for="portfolio" class="form-label">Enlace a tu portafolio (opcional)</label>
+                <input type="url" id="portfolio" name="portfolio" class="form-control" placeholder="Enlace a tu sitio web o portafolio" ngModel>
+              </div>
+        
+              <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary px-4">Enviar Solicitud</button>
+                <button type="button" class="btn btn-outline-secondary px-4" (click)="showPostForm = false">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        
+        
 
 
       </div>

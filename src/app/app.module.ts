@@ -15,10 +15,15 @@ import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { ForoComponent } from './foro/foro.component';
 import { AgregarCalandoComponent } from './agregar-calando/agregar-calando.component';
 import { ConfiguracionComponent } from './foro/configuracion/configuracion.component';
-import {ServiciosforoComponent } from './foro/serviciosforo/serviciosforo.component'
+import {ServiciosforoComponent } from './foro/serviciosforo/serviciosforo.component';
 import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch.component';
-import {RedescomunicacionComponent}from './foro/redescomunicacion/redescomunicacion.component'
-import {ServiciosmecatronicaComponent} from './foro/serviciosmecatronica/serviciosmecatronica.component'
+
+import {RedescomunicacionComponent}from './foro/redescomunicacion/redescomunicacion.component';
+import {ServiciosmecatronicaComponent} from './foro/serviciosmecatronica/serviciosmecatronica.component';
+
+import { ChatComponent } from './foro/chat/chat.component';
+
+
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import {ServiciosmecatronicaComponent} from './foro/serviciosmecatronica/servici
     ServiciosforoComponent,
     IngenierosearchComponent,
     RedescomunicacionComponent,
-    ServiciosmecatronicaComponent
+    ServiciosmecatronicaComponent,
+    ChatComponent
+
    
     
 
