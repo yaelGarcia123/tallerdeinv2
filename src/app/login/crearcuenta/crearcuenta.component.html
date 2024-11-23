@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
 </head>
 <body>
     <div class="content">
@@ -18,7 +19,7 @@
             </span>
             Regresar
         </button>
-<!--"-->
+
         <form class="form" #registerForm="ngForm" (ngSubmit)="register()">
             <p class="title">Regístrate</p>
             <p class="message">Ingrese sus datos para continuar</p>
@@ -26,30 +27,25 @@
             <div class="flex">
                 <label>
                     <input required placeholder="" type="text" class="input" [(ngModel)]="name" name="name">
-                    <span>Nombre</span>
+                    <span>Nombre completo</span>
                 </label>
-        
-                <label>
-                    <input required placeholder="" type="text" class="input" [(ngModel)]="username" name="username">
-                    <span>Apellido</span>
-                </label>
-            </div>  
-                    
-            <label>
-                <input required placeholder="" type="email" class="input" [(ngModel)]="email" name="email">
-                <span>Correo electronico</span>
-            </label> 
-
+            </div>
 
             <label>
                 <input required placeholder="" type="email" class="input" [(ngModel)]="email" name="email">
+                <span>Correo electrónico</span>
+            </label>
+
+            <label>
+                <input required placeholder="" type="text" class="input" [(ngModel)]="username" name="username">
                 <span>Nombre de usuario</span>
-            </label> 
-                
+            </label>
+
             <label>
                 <input required placeholder="" type="password" class="input" [(ngModel)]="password" name="password">
                 <span>Contraseña</span>
             </label>
+
             <label>
                 <input required placeholder="" type="password" class="input" [(ngModel)]="confirmPassword" name="confirmPassword">
                 <span>Confirmar Contraseña</span>
