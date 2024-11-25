@@ -1,35 +1,60 @@
 <div class="container-fluid">
-    <!-- Barra superior -->
-    <nav class="navbar">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <!-- Logo y Nombre -->
-        <div class="d-flex align-items-center">
-          <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="navbar-logo">
-          <span class="navbar-brand">Known Engineer</span> <!-- Nombre de la marca -->
-        </div>
-  
-        <!-- Contenedor de búsqueda -->
-        <div class="search-container">
-          <input type="text" class="search-input" placeholder="Buscar descripción o nombre de ingeniero"
-                 [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" />
-          <i class="search-icon fa fa-search"></i> <!-- Icono de búsqueda -->
-        </div>
+  <!-- Barra superior -->
+  <nav class="navbar">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <!-- Logo y Nombre -->
+      <div class="d-flex align-items-center">
+        <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="navbar-logo">
+        <span class="navbar-brand">Known Engineer</span>
       </div>
-    </nav>
-  
-    <!-- Contenedor de maestros -->
-    <div class="row">
-    
-    <!-- Lista de maestros filtrados -->
-      <div class="col-12">
-        <div *ngFor="let maestro of filteredPerfiles" class="maestro-card">
-          <img [src]="maestro.foto" alt="{{ maestro.nombre }}" class="maestro-foto">
-          <div class="maestro-info">
-            <h3>{{ maestro.nombre }}</h3>
-            <p>{{ maestro.descripcion }}</p>
-          </div>
+
+      <!-- Contenedor de búsqueda -->
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar descripción o nombre de ingeniero"
+               [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" />
+        <i class="search-icon fa fa-search"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenedor de perfiles -->
+  <div class="row">
+    <div class="col-12">
+      <div *ngFor="let maestro of filteredPerfiles" class="maestro-card" 
+           (click)="abrirModal(maestro)" data-bs-toggle="modal" data-bs-target="#joinModal">
+        <img [src]="maestro.foto" alt="{{ maestro.nombre }}" class="maestro-foto">
+        <div class="maestro-info">
+          <h3>{{ maestro.nombre }}</h3>
+          <p>{{ maestro.descripcion }}</p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="joinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow-lg border-0 rounded-3">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="joinModalLabel">Unirse a {{ selectedPerfil?.nombre }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-3">
+            <img [src]="selectedPerfil?.foto" alt="{{ selectedPerfil?.nombre }}" 
+                 class="img-fluid rounded-circle" style="max-width: 100px;">
+          </div>
+          <p class="lead">¿Estás seguro de que deseas unirte al servicio del ingeniero {{ selectedPerfil?.nombre }}?</p>
+          <p><strong>Descripción:</strong> {{ selectedPerfil?.descripcion }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="unirsePerfil()">Unirse</button>     
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   
+</div>

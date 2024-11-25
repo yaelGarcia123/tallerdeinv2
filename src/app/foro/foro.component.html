@@ -774,7 +774,6 @@
     <div *ngFor="let notificacion of notificaciones" class="alert" [ngClass]="{
         'alert-success': notificacion.tipo === 'exito',
         'alert-warning': notificacion.tipo === 'advertencia',
-        'alert-danger': notificacion.tipo === 'error'
       }">
       <strong>{{ notificacion.titulo }}</strong>
       <p>{{ notificacion.mensaje }}</p>

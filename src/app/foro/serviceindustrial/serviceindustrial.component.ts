@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-serviceindustrial',
-  
   templateUrl: './serviceindustrial.component.html',
-  styleUrl: './serviceindustrial.component.css'
+  styleUrls: ['./serviceindustrial.component.css']
 })
-export class ServiceindustrialComponent {
-  perfiles: any[] = 
-  [
+export class ServiceindustrialComponent implements OnInit {
+
+  perfiles: any[] = [
     {
       id: 1,
       nombre: 'Roberto Hernández',
@@ -21,28 +21,40 @@ export class ServiceindustrialComponent {
       descripcion: 'Experta en Logística y Cadena de Suministro, con amplia experiencia en el diseño y gestión de procesos logísticos para maximizar la eficiencia empresarial.',
       foto: 'assets/img/industrial2.jpeg'
     }
-  ]
-  
-  
-  
-  // Arreglo para almacenar los perfiles filtrados
+  ];
+
   filteredPerfiles: any[] = [];
-  
-  // Variable para almacenar la búsqueda
   searchQuery: string = '';
-  
-  constructor() { }
-  
+  selectedIngeniero: any = null; // Ingeniero seleccionado para el modal
+
+  constructor() {}
+
   ngOnInit(): void {
-    // Inicialmente mostramos todos los perfiles
     this.filteredPerfiles = this.perfiles;
   }
-  
-  // Método para filtrar los perfiles en base a la búsqueda
+
   onSearchChange(): void {
     this.filteredPerfiles = this.perfiles.filter(perfil => {
       return perfil.nombre.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
              perfil.descripcion.toLowerCase().includes(this.searchQuery.toLowerCase());
     });
+  }
+
+  abrirModal(ingeniero: any): void {
+    this.selectedIngeniero = ingeniero; // Establece el ingeniero seleccionado
+  }
+
+  unirseIngeniero(): void {
+   alert(`Te has unido al servicio de: ${this.selectedIngeniero.nombre}`);
+    // Lógica adicional para enviar datos al backend o realizar alguna acción
+
+    // Cierra el modal
+    const modalElement = document.getElementById('joinModal');
+    if (modalElement) {
+      const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement); // Usa getOrCreateInstance
+      modalInstance.hide();
+    }
+
+    
   }
 }

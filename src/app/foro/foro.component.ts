@@ -24,8 +24,8 @@ export class ForoComponent {
 
   currentSection1: string = 'notificaciones'; // Sección activa
   notificaciones: any[] = [
-    { titulo: 'Nueva Solicitud', mensaje: 'Tienes una nueva solicitud de freelancer.', tipo: 'exito', fecha: new Date() },
-    { titulo: 'Problema con la Cuenta', mensaje: 'Tu cuenta tiene un problema de verificación.', tipo: 'error', fecha: new Date() },
+    { titulo: 'Nueva Solicitud', mensaje: 'Acabas de enviar una solicitud a freenlancer.', tipo: 'exito', fecha: new Date() },
+   
     { titulo: 'Actualización de Servicio', mensaje: 'El servicio se actualizará mañana a las 10:00 AM.', tipo: 'advertencia', fecha: new Date() }
   ];
 

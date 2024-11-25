@@ -45,12 +45,12 @@
           <div class="text-center mb-3">
             <img [src]="selectedProfesor?.foto" alt="{{ selectedProfesor?.nombre }}" class="img-fluid rounded-circle" style="max-width: 100px;">
           </div>
-          <p class="lead">¿Estás seguro de que deseas unirte al curso del profesor {{ selectedProfesor?.nombre }}?</p>
+          <p class="large-text ">¿Estás seguro de que deseas unirte al curso del profesor {{ selectedProfesor?.nombre }}?</p>
           <p><strong>Descripción:</strong> {{ selectedProfesor?.descripcion }}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Unirse</button>     
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="unirseProfesor()">Unirse</button>     
            </div>
       </div>
     </div>

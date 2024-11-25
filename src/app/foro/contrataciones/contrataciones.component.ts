@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-contrataciones',
-
   templateUrl: './contrataciones.component.html',
-  styleUrl: './contrataciones.component.css'
+  styleUrls: ['./contrataciones.component.css']
 })
 export class ContratacionesComponent {
-  perfiles: any[] = 
-  [
+  perfiles: any[] = [
     {
       id: 1,
       nombre: 'Andrés Castillo',
@@ -27,29 +25,49 @@ export class ContratacionesComponent {
       nombre: 'Fernando López',
       descripcion: 'Docente e investigador en Circuitos Digitales, con énfasis en la implementación de tecnologías innovadoras para el desarrollo de dispositivos electrónicos.',
       foto: 'assets/img/ele3.jpeg'
-    },
-    
-  ]
-  
-  
-  // Arreglo para almacenar los perfiles filtrados
+    }
+  ];
+
+  // Perfiles filtrados para la búsqueda
   filteredPerfiles: any[] = [];
-  
   // Variable para almacenar la búsqueda
   searchQuery: string = '';
-  
-  constructor() { }
-  
+  // Perfil seleccionado para el modal
+  selectedPerfil: any = null;
+  // Mensaje de alerta
+  alertMessage: string | null = null;
+
+  constructor() {}
+
   ngOnInit(): void {
     // Inicialmente mostramos todos los perfiles
     this.filteredPerfiles = this.perfiles;
   }
-  
-  // Método para filtrar los perfiles en base a la búsqueda
+
+  // Filtra los perfiles en base a la búsqueda
   onSearchChange(): void {
     this.filteredPerfiles = this.perfiles.filter(perfil => {
       return perfil.nombre.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
              perfil.descripcion.toLowerCase().includes(this.searchQuery.toLowerCase());
     });
+  }
+
+  // Abre el modal con el perfil seleccionado
+  abrirModal(perfil: any): void {
+    this.selectedPerfil = perfil;
+  }
+
+  // Lógica al presionar "Unirse"
+  unirsePerfil(): void {
+  alert(`Te has unido al servicio de: ${this.selectedPerfil.nombre}`);
+
+    // Oculta el modal manualmente
+    const modalElement = document.getElementById('joinModal');
+    if (modalElement) {
+      const modalInstance = bootstrap.Modal.getInstance(modalElement);
+      modalInstance?.hide();
+    }
+
+    
   }
 }

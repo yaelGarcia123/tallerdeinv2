@@ -37,7 +37,7 @@ export class ServiciosforoComponent implements OnInit {
     this.selectedProfesor = profesor; // Establece el profesor seleccionado
   }
   unirseProfesor(): void {
-    console.log(`Te has unido a: ${this.selectedProfesor.nombre}`);
+    alert(`Te has unido a: ${this.selectedProfesor.nombre}`);
     // Lógica adicional para enviar datos al backend
   
     // Cierra el modal
@@ -47,7 +47,6 @@ export class ServiciosforoComponent implements OnInit {
       modalInstance.hide();
     }
   
-    this.selectedProfesor = null; // Limpia la selección
   }
   
   

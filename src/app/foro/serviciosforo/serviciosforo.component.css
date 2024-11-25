@@ -141,4 +141,9 @@
     flex-direction: column;
     align-items: flex-start;
   }
+  .large-text {
+    font-size: 5rem; /* Ajusta el tamaño según tu preferencia */
+    font-weight:inherit; /* Opcional, para resaltar */
+  }
+  
 }
