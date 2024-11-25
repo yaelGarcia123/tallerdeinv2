@@ -22,23 +22,35 @@ export class ForoComponent {
   loading: boolean = true;
   grupoSeleccionado: any = null; // Nuevo campo para el grupo seleccionado
 
+  currentSection1: string = 'notificaciones'; // Sección activa
+  notificaciones: any[] = [
+    { titulo: 'Nueva Solicitud', mensaje: 'Tienes una nueva solicitud de freelancer.', tipo: 'exito', fecha: new Date() },
+    { titulo: 'Problema con la Cuenta', mensaje: 'Tu cuenta tiene un problema de verificación.', tipo: 'error', fecha: new Date() },
+    { titulo: 'Actualización de Servicio', mensaje: 'El servicio se actualizará mañana a las 10:00 AM.', tipo: 'advertencia', fecha: new Date() }
+  ];
+
+
+  submitHelpRequest() {
+    console.log('Solicitud de ayuda enviada');
+    // Aquí puedes agregar lógica adicional para procesar el formulario.
+  }
 constructor(private supabaseService: SupabaseService,private router: Router,private cdr: ChangeDetectorRef) {}
 
 
 posts = [
   {
     usuario: 'Carlos Salas - Ingenieros en informatica, Mexico',
-    contenido: 'Esta es una publicación interesante sobre la naturaleza.',
-    imagen: 'assets/img/ingenieriasoftware.jpg',
+    contenido: 'Este es un problema que se presento quien me ayuda.',
+    imagen: 'assets/img/images.png',
     fecha: 'Hace 2 horas',
     comentarios: [
       {
         usuario: { nombre: 'Juan Pérez', foto: 'assets/img/ingenieriasoftware.jpg' },
-        contenido: '¡Qué interesante! Me encanta la naturaleza.',
+        contenido: 'yo tambien tuve lo mismo".',
       },
       {
         usuario: { nombre: 'Ana López', foto: 'assets/img/user1.webp' },
-        contenido: 'Totalmente de acuerdo, la naturaleza es fascinante.',
+        contenido: 'x2.',
       }
     ],
     mostrarComentarios: false,
@@ -47,12 +59,12 @@ posts = [
   {
     usuario: 'Yael Garcia - Ingenieros de software, Mexico',
     contenido: 'Compartiendo una actualización sobre mi día. ¡Espero que les guste!',
-    imagen: 'assets/img/ingenieriasoftware.jpg',
+    imagen: 'assets/img/postprogramer.png',
     fecha: 'Hace 5 horas',
     comentarios: [
       {
         usuario: { nombre: 'Luis Gómez', foto: 'assets/img/user1.webp' },
-        contenido: '¡Espero que haya sido un buen día!',
+        contenido: '¡Espero que haya sido un buen día que chambeador!',
       },
       {
         usuario: { nombre: 'Carla Martínez', foto: 'assets/img/user1.webp' },
@@ -70,7 +82,7 @@ posts = [
     comentarios: [
       {
         usuario: { nombre: 'María Fernández', foto: 'assets/img/user1.webp' },
-        contenido: '¡Qué hermoso lugar! ¿A dónde fuiste?',
+        contenido: 'Puro chambear como debe de ser',
       }
     ],
     mostrarComentarios: false,

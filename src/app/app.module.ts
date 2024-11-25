@@ -22,7 +22,9 @@ import {RedescomunicacionComponent}from './foro/redescomunicacion/redescomunicac
 import {ServiciosmecatronicaComponent} from './foro/serviciosmecatronica/serviciosmecatronica.component';
 
 import { ChatComponent } from './foro/chat/chat.component';
+import {ContratacionesComponent} from './foro/contrataciones/contrataciones.component'
 
+import {ServiceindustrialComponent} from './foro/serviceindustrial/serviceindustrial.component'
 
 
 
@@ -43,7 +45,9 @@ import { ChatComponent } from './foro/chat/chat.component';
     IngenierosearchComponent,
     RedescomunicacionComponent,
     ServiciosmecatronicaComponent,
-    ChatComponent
+    ChatComponent,
+    ContratacionesComponent,
+    ServiceindustrialComponent
 
    
     

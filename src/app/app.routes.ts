@@ -16,8 +16,8 @@ import { IngenierosearchComponent } from './foro/ingenierosearch/ingenierosearch
 import{RedescomunicacionComponent} from './foro/redescomunicacion/redescomunicacion.component';
 import {ServiciosmecatronicaComponent} from './foro/serviciosmecatronica/serviciosmecatronica.component';
 import { ChatComponent } from './foro/chat/chat.component';
-
-
+import {ContratacionesComponent} from './foro/contrataciones/contrataciones.component'
+import {ServiceindustrialComponent} from './foro/serviceindustrial/serviceindustrial.component'
 
 export const routes: Routes = [
 
@@ -35,8 +35,9 @@ export const routes: Routes = [
   {path: 'ingenierosearch', component:IngenierosearchComponent },
   {path: 'redescomunicacion', component:RedescomunicacionComponent},
   {path: 'serviciosmecatronica', component:ServiciosmecatronicaComponent},
-  {path: 'chat', component:ChatComponent}
-
+  {path: 'chat', component:ChatComponent},
+{path: 'contrataciones', component:ContratacionesComponent},
+{path: 'serviceindustrial', component:ServiceindustrialComponent}
 
  
 ];

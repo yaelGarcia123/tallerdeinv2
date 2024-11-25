@@ -20,14 +20,15 @@ export class IngenierosearchComponent {
     'Ing.Mecatronica': [
       { name: 'Robótica', description: 'Diseño, programación y control de robots industriales y móviles para innovacción.' },
       { name: 'Electrónica', description: 'Fundamentos de circuitos electrónicos, incluyendo el análisis y diseño de sistemas.' }
+
     ],
     'Ing.Mecanica': [
       { name: 'Diseño Mecánico', description: 'Principios y técnicas para el diseño de componentes y sistemas mecánicos utilizando herramientas CAD.' },
       { name: 'Termodinámica Aplicada', description: 'Estudio de los sistemas termodinámicos y su aplicación en procesos industriales.' }
     ],
     'Ing.Electronica': [
-      { name: 'Circuitos Digitales', description: 'Diseño y análisis de sistemas digitales y circuitos electrónicos avanzados.' },
-      { name: 'Control Automático', description:  'Fundamentos y técnicas para el diseño de sistemas de control.' }
+      { name: 'Circuitos Digitales', description: 'Diseño y análisis de sistemas digitales y circuitos electrónicos avanzados y no avanzados.' },
+      { name: 'Control Automático', description:  'Fundamentos y técnicas para el diseño de sistemas de control y funciones tecnicas.' }
     ],
     'Ing.Industrial': [
       { name: 'Gestión de Operaciones y procesos', description: 'Optimización y planificación de procesos productivos en entornos industriales.' },
@@ -44,9 +45,9 @@ export class IngenierosearchComponent {
     } else if (career === 'Ing.Mecatronica') {
       return '/serviciosmecatronica'; // Ruta para Ing.mecatronica
     } else if (career === 'Ing.Electronica') {
-      return '/servicioselectronica'; // Ruta para Ing.Electronica
+      return '/contrataciones'; // Ruta para Ing.Electronica
     } else if (career === 'Ing.Industrial') {
-      return '/serviciosindustrial'; // Ruta para Ing.Industrial
+      return '/serviceindustrial'; // Ruta para Ing.Industrial
     } else {
       return '/'; // Ruta por defecto (puedes cambiarla si es necesario)
     }
@@ -70,4 +71,12 @@ export class IngenierosearchComponent {
     console.log('Cerrar sesión');
     // Aquí puedes agregar lógica de cierre de sesión
   }
+
+  
+  usuario = [
+    {
+      nombre: 'Carlos Salas',
+      imagen: 'assets/img/user1.webp'
+    }
+  ];
 }
