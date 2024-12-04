@@ -8,26 +8,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./crearcuenta.component.css']
 })
 export class CrearCuentaComponent {
-  name: string = ''; // Propiedad para el nombre
-  username: string = ''; // Propiedad para el apellido
-  email: string = ''; // Propiedad para el email
-  password: string = ''; // Propiedad para la contraseña
-  confirmPassword: string = ''; // Propiedad para confirmar contraseña
-  curriculum: string = ''; // Propiedad para el currículum
+  name: string = ''; // Nombre completo
+  username: string = ''; // Nombre de usuario
+  email: string = ''; // Correo electrónico
+  password: string = ''; // Contraseña
+  confirmPassword: string = ''; // Confirmar contraseña
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
   constructor(private supabaseService: SupabaseService, private router: Router) {}
 
   async register() {
+    // Verifica si las contraseñas coinciden
+    if (this.password !== this.confirmPassword) {
+      this.errorMessage = 'Las contraseñas no coinciden';
+      this.successMessage = null;
+      return;
+    }
+
+    // Llamar al servicio de Supabase para registrar el usuario
     const { data, error } = await this.supabaseService.signUpWithEmail(this.email, this.password);
+
     if (error) {
       this.errorMessage = error.message;
       this.successMessage = null;
     } else {
       this.errorMessage = null;
       this.successMessage = 'Registro exitoso. Por favor, verifica tu correo electrónico.';
-      this.router.navigate(['/login']); // Ajusta la ruta según tu aplicación
+      this.router.navigate(['/login']); // Redirige a la página de login
     }
   }
 }

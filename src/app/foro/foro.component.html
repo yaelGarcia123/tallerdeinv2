@@ -1,66 +1,114 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+/>
 
 <div class="container-fluid">
   <div class="row">
     <!-- Botón de menú pequeño y vertical al borde izquierdo -->
     <button (click)="toggleSidebar()" class="menuSide toggle-btn ml-5">
-      <i class="fas fa-bars"></i> <!-- Ícono de menú -->
-      {{ isSidebarVisible ? '' : '' }}
+      <i class="fas fa-bars"></i>
+      <!-- Ícono de menú -->
+      {{ isSidebarVisible ? "" : "" }}
     </button>
 
-<!-- Menú lateral -->
-<div class="menuSide col-md-3 col-lg-2 text-white sidebar d-flex flex-column" [ngClass]="{'d-none': !isSidebarVisible}">
-  <div  [ngClass]="{'logo-container': true, 'logo-bottom': isSidebarVisible}">
-      <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="logo">
-  </div>
-  
-  <!-- Apartado de perfil del usuario -->
-  <div class="d-flex align-items-center p-3">
-    <img *ngFor="let usuario of usuario" [src]="usuario.imagen" alt="Foto de Perfil" class="rounded-circle" style="width: 50px; height: 50px;"> <!-- Cambia la ruta de la imagen -->
-      <span class="ml-2 text-white">Nombre del Usuario</span> <!-- Reemplaza con el nombre del usuario -->
-  </div>
-  
-  <h4 class="pt-3 px-3">Menú</h4>
-  <ul class="list-group list-group-flush flex-grow-1">
-      <li class="listaBoton">
-          <button (click)="changeSection('home')" class="menu-button">Inicio</button>
-      </li>
-      <li class="listaBoton">
-          <button (click)="changeSection('profile')" class="menu-button">Perfil</button>
-      </li>
+    <!-- Menú lateral -->
+    <div
+      class="menuSide col-md-3 col-lg-2 text-white sidebar d-flex flex-column"
+      [ngClass]="{ 'd-none': !isSidebarVisible }"
+    >
+      <div
+        [ngClass]="{ 'logo-container': true, 'logo-bottom': isSidebarVisible }"
+      >
+        <img src="../../assets/img/KnownLogo.png" alt="Logotipo" class="logo" />
+      </div>
 
-      <li class="listaBoton">
-        <button routerLink="/ingenierosearch" class="menu-button">Servicios</button>
-    </li>
+      <!-- Apartado de perfil del usuario -->
+      <div class="d-flex align-items-center p-3">
+        <img
+          *ngFor="let usuario of usuario"
+          [src]="usuario.imagen"
+          alt="Foto de Perfil"
+          class="rounded-circle"
+          style="width: 50px; height: 50px"
+        />
+        <!-- Cambia la ruta de la imagen -->
+        <span class="ml-2 text-white">Nombre del Usuario</span>
+        <!-- Reemplaza con el nombre del usuario -->
+      </div>
 
-      <li class="listaBoton">
-          <button (click)="changeSection('notifications')" class="menu-button">Notificaciones</button>
-      </li>
-      <li class="listaBoton">
-          <button routerLink="/configuracion" class="menu-button">Configuración</button>
-      </li>
-      <li class="listaBoton">
-          <button (click)="changeSection('help')" class="menu-button">Ayuda</button>
-      </li>
-      <br><br><br><br><br><br><br><br><br><br><br><br>
-      <li class="listaBoton">
+      <h4 class="pt-3 px-3">Menú</h4>
+      <ul class="list-group list-group-flush flex-grow-1">
+        <li class="listaBoton">
+          <button (click)="changeSection('home')" class="menu-button">
+            Inicio
+          </button>
+        </li>
+        <li class="listaBoton">
+          <button (click)="changeSection('profile')" class="menu-button">
+            Perfil
+          </button>
+        </li>
+
+        <li class="listaBoton">
+          <button routerLink="/ingenierosearch" class="menu-button">
+            Servicios
+          </button>
+        </li>
+
+        <li class="listaBoton">
+          <button (click)="changeSection('notificaciones')" class="menu-button">
+            Notificaciones
+          </button>
+        </li>
+        <li class="listaBoton">
+          <button routerLink="/configuracion" class="menu-button">
+            Configuración
+          </button>
+        </li>
+        <li class="listaBoton">
+          <button (click)="changeSection('ayuda')" class="menu-button">
+            Ayuda
+          </button>
+        </li>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <li class="listaBoton">
           <button (click)="logout()" class="menu-button">Cerrar Sesión</button>
-      </li>
-  </ul>
-</div>
-
+        </li>
+      </ul>
+    </div>
 
     <!-- Contenido principal -->
-    <div class="col content-wrapper" [ngClass]="{'col-md-9 col-lg-10': isSidebarVisible, 'col-md-12': !isSidebarVisible}">
+    <div
+      class="col content-wrapper"
+      [ngClass]="{
+        'col-md-9 col-lg-10': isSidebarVisible,
+        'col-md-12': !isSidebarVisible
+      }"
+    >
       <!-- Barra de iconos centrada -->
-      <div class="barramenu d-flex justify-content-center align-items-center py-3  shadow-sm section-bar">
-        <button (click)="changeSection('home')" class="btn btn-link" [ngClass]="{'text-primary': currentSection === 'home'}">
+      <div
+        class="barramenu d-flex justify-content-center align-items-center py-3 shadow-sm section-bar"
+      >
+        <button
+          (click)="changeSection('home')"
+          class="btn btn-link"
+          [ngClass]="{ 'text-primary': currentSection === 'home' }"
+        >
           <i class="fas fa-home fa-2x"></i>
         </button>
-        <button (click)="changeSection('foros')" class="btn btn-link" [ngClass]="{'text-primary': currentSection === 'foros'}">
+        <button
+          (click)="changeSection('foros')"
+          class="btn btn-link"
+          [ngClass]="{ 'text-primary': currentSection === 'foros' }"
+        >
           <i class="fas fa-users fa-lg fa-2x"></i>
         </button>
-        <button (click)="changeSection('messages')" class="btn btn-link" [ngClass]="{'text-primary': currentSection === 'messages'}">
+        <button
+          (click)="changeSection('messages')"
+          class="btn btn-link"
+          [ngClass]="{ 'text-primary': currentSection === 'messages' }"
+        >
           <i class="fas fa-envelope fa-2x"></i>
         </button>
       </div>
@@ -69,13 +117,24 @@
       <div class="content-container">
         <div *ngIf="currentSection === 'home'">
           <!-- Botón para abrir el modal -->
-        
+
           <!-- Modal para agregar publicación -->
-                    <!-- Contenedor de agregar publicación -->
+          <!-- Contenedor de agregar publicación -->
           <div class="post-container">
-            <img *ngFor="let usuario of usuario" [src]="usuario.imagen" class="user-avatar">
-            <input type="text" placeholder="¿Qué estás pensando?" class="post-input" (focus)="showPostForm = true">
-            <button class="post-btn" (click)="showPostForm = true">Agregar</button>
+            <img
+              *ngFor="let usuario of usuario"
+              [src]="usuario.imagen"
+              class="user-avatar"
+            />
+            <input
+              type="text"
+              placeholder="¿Qué estás pensando?"
+              class="post-input"
+              (focus)="showPostForm = true"
+            />
+            <button class="post-btn" (click)="showPostForm = true">
+              Agregar
+            </button>
           </div>
 
           <!-- Modal de formulario -->
@@ -85,50 +144,93 @@
               <form (ngSubmit)="submitPost()">
                 <div class="form-group mb-3">
                   <label for="titulo">Título</label>
-                  <input type="text" id="titulo" [(ngModel)]="titulo" name="titulo" class="form-control" required>
+                  <input
+                    type="text"
+                    id="titulo"
+                    [(ngModel)]="titulo"
+                    name="titulo"
+                    class="form-control"
+                    required
+                  />
                 </div>
                 <div class="form-group mb-3">
                   <label for="grupo">Seleccionar Grupo</label>
-                  <select id="grupo" [(ngModel)]="grupoSeleccionado" name="grupo" class="form-control" required>
-                    <option *ngFor="let grupo of groups" [ngValue]="grupo">{{ grupo.nombre }}</option>
+                  <select
+                    id="grupo"
+                    [(ngModel)]="grupoSeleccionado"
+                    name="grupo"
+                    class="form-control"
+                    required
+                  >
+                    <option *ngFor="let grupo of groups" [ngValue]="grupo">
+                      {{ grupo.nombre }}
+                    </option>
                   </select>
                 </div>
                 <div class="form-group mb-3">
                   <label for="imagen">Imagen</label>
-                  <input type="file" id="imagen" (change)="onFileChange($event)" class="form-control">
+                  <input
+                    type="file"
+                    id="imagen"
+                    (change)="onFileChange($event)"
+                    class="form-control"
+                  />
                 </div>
                 <div class="form-group mb-3">
                   <label for="contenido">Contenido</label>
-                  <textarea id="contenido" [(ngModel)]="contenido" name="contenido" class="form-control" required></textarea>
+                  <textarea
+                    id="contenido"
+                    [(ngModel)]="contenido"
+                    name="contenido"
+                    class="form-control"
+                    required
+                  ></textarea>
                 </div>
                 <div class="d-flex justify-content-center gap-3">
-                  <button type="submit" class="btn btn-primary">Publicar</button>
-                  <button type="button" class="btn btn-secondary" (click)="showPostForm = false">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">
+                    Publicar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="showPostForm = false"
+                  >
+                    Cancelar
+                  </button>
                 </div>
               </form>
             </div>
           </div>
 
-
-
-
-
-
-        
           <!-- Publicaciones existentes -->
           <div *ngFor="let post of posts" class="card mb-4 shadow-sm">
             <div class="card-header text-white">
-              <h5>{{ post.usuario || 'Usuario desconocido' }}</h5>
+              <h5>{{ post.usuario || "Usuario desconocido" }}</h5>
             </div>
             <div class="card-body">
               <p>{{ post.contenido }}</p>
-              <img *ngIf="post.imagen" [src]="post.imagen" class="img-fluid rounded" alt="Imagen de publicación">
+              <img
+                *ngIf="post.imagen"
+                [src]="post.imagen"
+                class="img-fluid rounded"
+                alt="Imagen de publicación"
+              />
               <div class="mt-3">
-                <button (click)="toggleLike()" [ngClass]="{'btn-dark': isLiked, 'btn-outline-primary': !isLiked}" class="btn btn-lg rounded-circle shadow-sm hover-effect">
+                <button
+                  (click)="toggleLike()"
+                  [ngClass]="{
+                    'btn-dark': isLiked,
+                    'btn-outline-primary': !isLiked
+                  }"
+                  class="btn btn-lg rounded-circle shadow-sm hover-effect"
+                >
                   <i class="fas fa-thumbs-up"></i>
                 </button>
-                
-                <button (click)="post.mostrarComentarios = !post.mostrarComentarios" class="btn btn-lg rounded-circle shadow-sm hover-effect">
+
+                <button
+                  (click)="post.mostrarComentarios = !post.mostrarComentarios"
+                  class="btn btn-lg rounded-circle shadow-sm hover-effect"
+                >
                   <i class="fas fa-comments"></i>
                 </button>
               </div>
@@ -136,101 +238,116 @@
             <div class="card-footer text-muted">
               {{ post.fecha }}
             </div>
-          
+
             <!-- Sección de comentarios -->
             <div *ngIf="post.mostrarComentarios" class="mt-4">
-              <div *ngFor="let comentario of post.comentarios" class="d-flex align-items-start mb-3">
-                <img *ngIf="comentario.usuario?.foto" [src]="comentario.usuario?.foto" class="rounded-circle ml-2 me-2" width="40" height="40" alt="Foto de perfil">
+              <div
+                *ngFor="let comentario of post.comentarios"
+                class="d-flex align-items-start mb-3"
+              >
+                <img
+                  *ngIf="comentario.usuario?.foto"
+                  [src]="comentario.usuario?.foto"
+                  class="rounded-circle ml-2 me-2"
+                  width="40"
+                  height="40"
+                  alt="Foto de perfil"
+                />
                 <div>
-                  <div class="fw-bold">{{ comentario.usuario?.nombre || 'Usuario desconocido' }}</div>
+                  <div class="fw-bold">
+                    {{ comentario.usuario?.nombre || "Usuario desconocido" }}
+                  </div>
                   <p>{{ comentario.contenido }}</p>
                 </div>
               </div>
-          
+
               <!-- Formulario para agregar un comentario -->
               <div class="mt-3 d-flex align-items-start">
-                <img *ngFor="let usuario of usuario" [src]="usuario.imagen" alt="Foto de Perfil" class="rounded-circle ml-2 me-2" width="40" height="40" alt="Tu foto de perfil">
+                <img
+                  *ngFor="let usuario of usuario"
+                  [src]="usuario.imagen"
+                  alt="Foto de Perfil"
+                  class="rounded-circle ml-2 me-2"
+                  width="40"
+                  height="40"
+                  alt="Tu foto de perfil"
+                />
                 <div class="w-100">
-                  <input type="text" [(ngModel)]="post.nuevoComentario" placeholder="Escribe un comentario..." class="form-control mb-2">
-                  <button (click)="agregarComentario(post)" class="btn btn-primary btn-sm mb-2">Agregar comentario</button>
+                  <input
+                    type="text"
+                    [(ngModel)]="post.nuevoComentario"
+                    placeholder="Escribe un comentario..."
+                    class="form-control mb-2"
+                  />
+                  <button
+                    (click)="agregarComentario(post)"
+                    class="btn btn-primary btn-sm mb-2"
+                  >
+                    Agregar comentario
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div class="foro-section" *ngIf="currentSection === 'foros'">
           <h3 class="text-center fw-bold my-4">Buscar Grupos o Foros</h3>
-        
+
           <!-- Barra de búsqueda con botón de agregar grupo -->
           <div class="input-group my-3">
             <!-- Botón para mostrar el formulario de agregar grupo -->
-            
-        
+
             <!-- Barra de búsqueda -->
             <span class="input-group-text bg-light border-0" id="search-addon">
               <i class="bi bi-search"></i>
             </span>
-            <input 
-              type="text" 
-              class="form-control border-0 mt-2" 
-              placeholder="Buscar grupos..." 
-              [(ngModel)]="searchQuery" 
+            <input
+              type="text"
+              class="form-control border-0 mt-2"
+              placeholder="Buscar grupos..."
+              [(ngModel)]="searchQuery"
               (input)="filterGroups()"
             />
-            <button class="btn btn-primary me-2" (click)="showGroupForm = true">Agregar Grupo</button>
+            <button class="btn btn-primary me-2" (click)="showGroupForm = true">
+              Agregar Grupo
+            </button>
           </div>
-        
+
           <!-- Mensaje cuando no hay resultados -->
-          <div *ngIf="filteredGroups.length === 0 && searchQuery" class="text-center mt-3 text-muted">
+          <div
+            *ngIf="filteredGroups.length === 0 && searchQuery"
+            class="text-center mt-3 text-muted"
+          >
             No se han encontrado resultados.
           </div>
-        
+
           <!-- Lista de grupos -->
           <div class="group-list">
             <div class="card mb-3" *ngFor="let group of filteredGroups">
               <div class="row g-0">
                 <!-- Columna para la imagen -->
                 <div class="col-md-3">
-                  <img *ngIf="group.imagen" [src]="group.imagen" class="img-fluid rounded-start" alt="Imagen del grupo">
+                  <img
+                    *ngIf="group.imagen"
+                    [src]="group.imagen"
+                    class="img-fluid rounded-start"
+                    alt="Imagen del grupo"
+                  />
                 </div>
                 <!-- Columna para el contenido del grupo -->
                 <div class="col-md-9">
                   <div class="card-body">
                     <h4 class="card-title fw-bold">{{ group.nombre }}</h4>
                     <p class="card-text">{{ group.descripcion }}</p>
-                    <small class="text-muted">Miembros: {{ group.miembros }}</small>
+                    <small class="text-muted"
+                      >Miembros: {{ group.miembros }}</small
+                    >
                     <!-- Botón de unirse -->
-                    <button (click)="joinGroup(group)" class="btn btn-primary btn-sm float-end mt-2">
+                    <button
+                      (click)="joinGroup(group)"
+                      class="btn btn-primary btn-sm float-end mt-2"
+                    >
                       Unirse al grupo
                     </button>
                   </div>
@@ -240,110 +357,180 @@
           </div>
         </div>
 
-
-                <!-- Modal de formulario para agregar grupo -->
+        <!-- Modal de formulario para agregar grupo -->
         <div class="modal-backdrop" *ngIf="showGroupForm">
           <div class="modal-content p-4">
             <h5>Agregar Nuevo Grupo</h5>
             <form (ngSubmit)="addGroup()">
               <div class="form-group mb-3">
                 <label for="nombre">Nombre del Grupo</label>
-                <input type="text" id="nombre" [(ngModel)]="newGroup.nombre" name="nombre" class="form-control" required>
+                <input
+                  type="text"
+                  id="nombre"
+                  [(ngModel)]="newGroup.nombre"
+                  name="nombre"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group mb-3">
                 <label for="imagen">Imagen del Grupo</label>
-                <input type="file" id="imagen" (change)="onFileChangeG($event)" class="form-control">
+                <input
+                  type="file"
+                  id="imagen"
+                  (change)="onFileChangeG($event)"
+                  class="form-control"
+                />
               </div>
               <div class="form-group mb-3">
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion" [(ngModel)]="newGroup.descripcion" name="descripcion" class="form-control" required></textarea>
+                <textarea
+                  id="descripcion"
+                  [(ngModel)]="newGroup.descripcion"
+                  name="descripcion"
+                  class="form-control"
+                  required
+                ></textarea>
               </div>
               <div class="form-group mb-3">
                 <label for="miembros">Número de Miembros</label>
-                <input type="number" id="miembros" [(ngModel)]="newGroup.miembros" name="miembros" class="form-control" required>
+                <input
+                  type="number"
+                  id="miembros"
+                  [(ngModel)]="newGroup.miembros"
+                  name="miembros"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="d-flex justify-content-center gap-3">
-                <button type="submit" class="btn btn-primary">Agregar Grupo</button>
-                <button type="button" class="btn btn-secondary" (click)="showGroupForm = false">Cancelar</button>
+                <button type="submit" class="btn btn-primary">
+                  Agregar Grupo
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  (click)="showGroupForm = false"
+                >
+                  Cancelar
+                </button>
               </div>
             </form>
           </div>
         </div>
 
-        
         <div *ngIf="currentSection === 'messages'" class="messages-modal">
           <h3 class="mb-4">Mensajes</h3>
           <p>Aquí aparecerán tus mensajes recientes.</p>
-        
+
           <!-- Listado de chats -->
           <div class="list-group">
-            <div *ngFor="let chat of chats" class="list-group-item d-flex align-items-center" (click)="openChat(chat)">
+            <div
+              *ngFor="let chat of chats"
+              class="list-group-item d-flex align-items-center"
+              (click)="openChat(chat)"
+            >
               <!-- Imagen del usuario -->
-              <img [src]="chat.usuario.foto" alt="{{ chat.usuario.nombre }}" class="rounded-circle me-3" width="50" height="50">
-        
+              <img
+                [src]="chat.usuario.foto"
+                alt="{{ chat.usuario.nombre }}"
+                class="rounded-circle me-3"
+                width="50"
+                height="50"
+              />
+
               <div class="flex-grow-1">
                 <!-- Nombre y último mensaje -->
                 <h6 class="mb-1">{{ chat.usuario.nombre }}</h6>
                 <p class="text-muted mb-0">{{ chat.ultimoMensaje }}</p>
               </div>
-        
+
               <!-- Icono de notificación (si hay mensajes nuevos) -->
               <div *ngIf="chat.nuevaNotificacion" class="ms-3">
-                <i class="bi bi-bell-fill text-danger" style="font-size: 20px;"></i>
+                <i
+                  class="bi bi-bell-fill text-danger"
+                  style="font-size: 20px"
+                ></i>
               </div>
             </div>
           </div>
         </div>
-        
 
-
-<!-- Modal para mostrar el chat -->
-<div *ngIf="selectedChat" class="modal fade show" style="display: block;" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-header border-0">
-        <h5 class="modal-title text-primary" id="chatModalLabel">{{ selectedChat.usuario.nombre }}</h5>
-        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-3">
-        <!-- Mensajes del chat -->
-        <div *ngFor="let mensaje of selectedChat.mensajes" class="mb-3">
-          <div class="d-flex mb-2" [ngClass]="{'justify-content-start': mensaje.usuario.nombre !== 'Tú', 'justify-content-end': mensaje.usuario.nombre === 'Tú'}">
-            <div class="chat-message p-2 rounded-3" [ngClass]="{'bg-light': mensaje.usuario.nombre !== 'Tú', 'bg-primary text-white': mensaje.usuario.nombre === 'Tú'}">
-              <strong>{{ mensaje.usuario.nombre }}:</strong> {{ mensaje.texto }}
+        <!-- Modal para mostrar el chat -->
+        <div
+          *ngIf="selectedChat"
+          class="modal fade show"
+          style="display: block"
+          id="chatModal"
+          tabindex="-1"
+          aria-labelledby="chatModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content rounded-4 shadow">
+              <div class="modal-header border-0">
+                <h5 class="modal-title text-primary" id="chatModalLabel">
+                  {{ selectedChat.usuario.nombre }}
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  (click)="closeModal()"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body p-3">
+                <!-- Mensajes del chat -->
+                <div *ngFor="let mensaje of selectedChat.mensajes" class="mb-3">
+                  <div
+                    class="d-flex mb-2"
+                    [ngClass]="{
+                      'justify-content-start': mensaje.usuario.nombre !== 'Tú',
+                      'justify-content-end': mensaje.usuario.nombre === 'Tú'
+                    }"
+                  >
+                    <div
+                      class="chat-message p-2 rounded-3"
+                      [ngClass]="{
+                        'bg-light': mensaje.usuario.nombre !== 'Tú',
+                        'bg-primary text-white': mensaje.usuario.nombre === 'Tú'
+                      }"
+                    >
+                      <strong>{{ mensaje.usuario.nombre }}:</strong>
+                      {{ mensaje.texto }}
+                    </div>
+                  </div>
+                </div>
+                <!-- Formulario para enviar mensaje -->
+                <div class="mt-3">
+                  <textarea
+                    [(ngModel)]="newMessage"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Escribe un mensaje..."
+                    (keyup.enter)="sendMessage()"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  (click)="closeModal()"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="sendMessage()"
+                >
+                  Enviar
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Formulario para enviar mensaje -->
-        <div class="mt-3">
-          <textarea [(ngModel)]="newMessage" class="form-control" rows="3" placeholder="Escribe un mensaje..." (keyup.enter)="sendMessage()"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="sendMessage()">Enviar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div *ngIf="currentSection === 'profile'" class="perfil-container">
           <!-- Información Básica -->
@@ -360,41 +547,241 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Sección de Enviar Solicitud como Freelancer -->
           <div class="card shadow-sm p-4">
             <h3 class="card-title mb-4">Enviar Solicitud como Freelancer</h3>
             <form (ngSubmit)="submitRequest()" #freelancerForm="ngForm">
               <div class="form-group mb-3">
-                <label for="curriculum" class="form-label">Subir currículum</label>
-                <input type="file" id="curriculum" name="curriculum" class="form-control" ngModel>
+                <label for="curriculum" class="form-label"
+                  >Subir currículum</label
+                >
+                <input
+                  type="file"
+                  id="curriculum"
+                  name="curriculum"
+                  class="form-control"
+                  ngModel
+                />
               </div>
-        
+
               <div class="form-group mb-3">
                 <label for="skills" class="form-label">Habilidades clave</label>
-                <textarea id="skills" name="skills" rows="3" class="form-control" placeholder="Escribe tus habilidades y experiencia" ngModel></textarea>
+                <textarea
+                  id="skills"
+                  name="skills"
+                  rows="3"
+                  class="form-control"
+                  placeholder="Escribe tus habilidades y experiencia"
+                  ngModel
+                ></textarea>
               </div>
-        
+
               <div class="form-group mb-3">
-                <label for="coverLetter" class="form-label">Carta de presentación</label>
-                <textarea id="coverLetter" name="coverLetter" rows="4" class="form-control" placeholder="Explica por qué te gustaría trabajar como freelancer y por qué te consideras adecuado para el puesto." ngModel></textarea>
+                <label for="coverLetter" class="form-label"
+                  >Carta de presentación</label
+                >
+                <textarea
+                  id="coverLetter"
+                  name="coverLetter"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Explica por qué te gustaría trabajar como freelancer y por qué te consideras adecuado para el puesto."
+                  ngModel
+                ></textarea>
               </div>
-        
+
               <div class="form-group mb-3">
-                <label for="portfolio" class="form-label">Enlace a tu portafolio (opcional)</label>
-                <input type="url" id="portfolio" name="portfolio" class="form-control" placeholder="Enlace a tu sitio web o portafolio" ngModel>
+                <label for="portfolio" class="form-label"
+                  >Enlace a tu portafolio (opcional)</label
+                >
+                <input
+                  type="url"
+                  id="portfolio"
+                  name="portfolio"
+                  class="form-control"
+                  placeholder="Enlace a tu sitio web o portafolio"
+                  ngModel
+                />
               </div>
-        
+
               <div class="d-flex justify-content-center gap-3">
-                <button type="submit" class="btn btn-primary px-4">Enviar Solicitud</button>
-                <button type="button" class="btn btn-outline-secondary px-4" (click)="showPostForm = false">Cancelar</button>
+                <button type="submit" class="btn btn-primary px-4">
+                  Enviar Solicitud
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary px-4"
+                  (click)="showPostForm = false"
+                >
+                  Cancelar
+                </button>
               </div>
             </form>
           </div>
         </div>
-        
-        
-        
+
+        <!-- Sección de Ayuda -->
+        <div *ngIf="currentSection === 'ayuda'" class="ayuda-container">
+          <!-- Preguntas Frecuentes -->
+          <div class="card shadow-sm p-4 mb-4">
+            <h3 class="card-title mb-3">Preguntas Frecuentes</h3>
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1Heading">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                    aria-expanded="true"
+                    aria-controls="faq1"
+                  >
+                    ¿Cómo puedo ser freenlancer con ustedes?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="faq1Heading"
+                >
+                  <div class="accordion-body">
+                    Puedes ir a la sección de "Perfil" y ahi en el apartado de
+                    "Enviar Solicitud como Freelancer subes tus datos ".
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2Heading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                    aria-expanded="false"
+                    aria-controls="faq2"
+                  >
+                    ¿Cómo contacto al soporte técnico?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq2Heading"
+                >
+                  <div class="accordion-body">
+                    Puedes contactarnos utilizando el formulario de soporte que
+                    se encuentra en esta misma sección.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3Heading">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                    aria-expanded="false"
+                    aria-controls="faq3"
+                  >
+                    ¿Cómo elimino mi cuenta?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq3Heading"
+                >
+                  <div class="accordion-body">
+                    Para eliminar tu cuenta, por favor contacta al soporte
+                    técnico y proporciona la información necesaria.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario de Soporte -->
+          <div class="card shadow-sm p-4">
+            <h3 class="card-title mb-4">Formulario de Soporte</h3>
+            <form (ngSubmit)="submitHelpRequest()" #helpForm="ngForm">
+              <div class="form-group mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Tu nombre"
+                  ngModel
+                  required
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Tu correo electrónico"
+                  ngModel
+                  required
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="issue" class="form-label"
+                  >Describe tu problema</label
+                >
+                <textarea
+                  id="issue"
+                  name="issue"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Explica el problema que estás enfrentando"
+                  ngModel
+                  required
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary px-4">
+                  Enviar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary px-4"
+                  (click)="currentSection = 'inicio'"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
+<!-- Sección de Notificaciones -->
+<div *ngIf="currentSection === 'notificaciones'" class="notificaciones-container">
+  <div class="card shadow-sm p-4 mb-4">
+    <h3 class="card-title mb-3">Notificaciones</h3>
+    <div *ngFor="let notificacion of notificaciones" class="alert" [ngClass]="{
+        'alert-success': notificacion.tipo === 'exito',
+        'alert-warning': notificacion.tipo === 'advertencia',
+      }">
+      <strong>{{ notificacion.titulo }}</strong>
+      <p>{{ notificacion.mensaje }}</p>
+      <small>{{ notificacion.fecha | date:'short' }}</small>
+    </div>
+  </div>
+</div>
+
 
 
       </div>

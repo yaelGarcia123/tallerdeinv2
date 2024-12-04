@@ -10,31 +10,44 @@ export class IngenierosearchComponent {
   currentSection: string = 'home'; // Sección actual por defecto
 
   // Definir las claves de 'services' como tipo para 'selectedCareer'
-  selectedCareer: 'Ing.Sistemas' | 'Ing.mecatronica' | 'Ing.redes de la comunicacion' | null = null;
+  selectedCareer: 'Ing.Software' | 'Ing.Mecatronica' | 'Ing.Mecanica' | 'Ing.Electronica' | 'Ing.Industrial' | null = null;
 
   services = {
-    'Ing.Sistemas': [
+    'Ing.Software': [
       { name: 'Tester en programación', description: 'Técnicas y herramientas fundamentales para convertirte en un tester profesional en el campo de la programación.' },
       { name: 'Desarrollo Full Stack', description: 'Ir de la mano con cualquier aplicación que se tenga problemas ya sea en el front end o back end.' }
     ],
-    'Ing.mecatronica': [
+    'Ing.Mecatronica': [
       { name: 'Robótica', description: 'Diseño, programación y control de robots industriales y móviles para innovacción.' },
       { name: 'Electrónica', description: 'Fundamentos de circuitos electrónicos, incluyendo el análisis y diseño de sistemas.' }
+
     ],
-    'Ing.redes de la comunicacion': [
-      { name: 'Seguridad en Redes de Comunicación', description: 'Técnicas de seguridad y protección de redes.' },
-      { name: 'Administración y Gestión de Redes', description: 'Técnicas para gestionar, monitorear y optimizar el rendimiento de redes.' }
+    'Ing.Mecanica': [
+      { name: 'Diseño Mecánico', description: 'Principios y técnicas para el diseño de componentes y sistemas mecánicos utilizando herramientas CAD.' },
+      { name: 'Termodinámica Aplicada', description: 'Estudio de los sistemas termodinámicos y su aplicación en procesos industriales.' }
+    ],
+    'Ing.Electronica': [
+      { name: 'Circuitos Digitales', description: 'Diseño y análisis de sistemas digitales y circuitos electrónicos avanzados y no avanzados.' },
+      { name: 'Control Automático', description:  'Fundamentos y técnicas para el diseño de sistemas de control y funciones tecnicas.' }
+    ],
+    'Ing.Industrial': [
+      { name: 'Gestión de Operaciones y procesos', description: 'Optimización y planificación de procesos productivos en entornos industriales.' },
+      { name: 'Logística y Cadena de Suministro',description:'Técnicas para gestionar eficientemente cadenas de suministro y procesos logísticos.' }
     ]
   };
 
   // Método para obtener la ruta según la carrera y el servicio
   getServiceDetailsLink(career: string, serviceName: string): string {
-    if (career === 'Ing.Sistemas') {
-      return '/serviciosforo'; // Ruta para Ing.Sistemas
-    } else if (career === 'Ing.redes de la comunicacion') {
-      return '/redescomunicacion'; // Ruta para Ing.redes de la comunicación
-    } else if (career === 'Ing.mecatronica') {
+    if (career === 'Ing.Software') {
+      return '/serviciosforo'; // Ruta para Ing.Software
+    } else if (career === 'Ing.Mecanica') {
+      return '/redescomunicacion'; // Ruta para Ing.Mecanica
+    } else if (career === 'Ing.Mecatronica') {
       return '/serviciosmecatronica'; // Ruta para Ing.mecatronica
+    } else if (career === 'Ing.Electronica') {
+      return '/contrataciones'; // Ruta para Ing.Electronica
+    } else if (career === 'Ing.Industrial') {
+      return '/serviceindustrial'; // Ruta para Ing.Industrial
     } else {
       return '/'; // Ruta por defecto (puedes cambiarla si es necesario)
     }
@@ -49,7 +62,7 @@ export class IngenierosearchComponent {
     this.currentSection = section; // Actualiza la sección actual
   }
 
-  showServices(career: 'Ing.Sistemas' | 'Ing.mecatronica' | 'Ing.redes de la comunicacion') {
+  showServices(career: 'Ing.Software' | 'Ing.Mecatronica' | 'Ing.Mecanica' | 'Ing.Electronica' | 'Ing.Industrial') {
     this.selectedCareer = career; // Almacena la carrera seleccionada
   }
 
@@ -58,4 +71,12 @@ export class IngenierosearchComponent {
     console.log('Cerrar sesión');
     // Aquí puedes agregar lógica de cierre de sesión
   }
+
+  
+  usuario = [
+    {
+      nombre: 'Carlos Salas',
+      imagen: 'assets/img/user1.webp'
+    }
+  ];
 }

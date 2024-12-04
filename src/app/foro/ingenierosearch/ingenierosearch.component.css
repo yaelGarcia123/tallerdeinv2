@@ -238,3 +238,12 @@
   transform: scale(1.05); /* Escalar el botón al pasar el mouse */
 }
 
+.inicial{
+  margin-top: 5rem;
+}
+
+.inicial p{
+
+font-size: 2rem;
+
+}
